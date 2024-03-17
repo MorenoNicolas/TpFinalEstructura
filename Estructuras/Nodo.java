@@ -1,4 +1,4 @@
-package Dinamicas;
+
 
  class Nodo {
     private Object element;

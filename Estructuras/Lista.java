@@ -1,4 +1,4 @@
-package Dinamicas;
+
 
 public class Lista {
     private Nodo cabecera;

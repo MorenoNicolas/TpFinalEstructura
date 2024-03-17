@@ -1,4 +1,4 @@
-package Dinamicas;
+
 
 public class Cola {
     private Nodo frente;
