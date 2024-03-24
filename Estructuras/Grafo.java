@@ -82,5 +82,113 @@ public class Grafo {
         }
         return resultado;
     }
+    public boolean insertarArco(Object origen, Object destino, double etiqueta){
+        boolean exito = false;
+        if (this.inicio != null) {
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert destinoAux = ubicarVertice(destino);
+            if (origenAux != null && destinoAux != null && (!origen.equals(destino))) {
+                origenAux.setPrimerAdy(new NodoAdy(destinoAux, origenAux.getPrimerAdy(), etiqueta));
+                destinoAux.setPrimerAdy(new NodoAdy(origenAux, destinoAux.getPrimerAdy(), etiqueta));
+                exito = true;
+            }
+        }
+        return exito;
+    }
+    public boolean eliminarArco(Object origen, Object destino){
+        boolean exito = false;
+        if(inicio != null){
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert destinoAux = ubicarVertice(destino);
+            if(origenAux != null && destinoAux != null && (!origen.equals(destino))){
+                boolean exitoOrigen = eliminarArcoAux(origenAux , destinoAux);
+                boolean exitoDestino = eliminarArcoAux(origenAux, destinoAux);
+                exito = exitoOrigen && exitoDestino;
+            }
+        }
+        return exito;
+    }
+    private boolean eliminarArcoAux(NodoVert origen, Object destino){
+        boolean resultado = false;
+        if (origen.getPrimerAdy().getVertice().getElem().equals(destino)) {
+            origen.setPrimerAdy(origen.getPrimerAdy().getSigAdyacente());
+            resultado = true;
+        } else {
+            NodoAdy aux = origen.getPrimerAdy();
+            while (aux.getSigAdyacente() != null && !resultado) {
+                if (aux.getSigAdyacente().getVertice().getElem().equals(destino)) {
+                    aux.setSigAdyacente(aux.getSigAdyacente().getSigAdyacente());
+                    resultado = true;
+                } else {
+                    aux = aux.getSigAdyacente();
+                }
+            }
+        }
+        return resultado; 
+    }
+    public boolean existeArco(NodoVert origen, Object destino){
+        boolean exito = false;
+        if(inicio != null){
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert destinoAux = ubicarVertice(destino);
+            if(origenAux != null && destinoAux != null && (!origen.equals(destino))){
+                exito = existeArcoAux(origenAux , destinoAux);
+            }
+        }
+        return exito;
+    }
+    private boolean existeArcoAux(NodoVert origen, Object destino){
+        boolean resultado = false;
+        if (origen.getPrimerAdy().getVertice().getElem().equals(destino)) {
+            resultado = true;
+        } else {
+            NodoAdy aux = origen.getPrimerAdy();
+            while (aux.getSigAdyacente() != null && !resultado) {
+                if (aux.getSigAdyacente().getVertice().getElem().equals(destino)) {
+                    resultado = true;
+                } else {
+                    aux = aux.getSigAdyacente();
+                }
+            }
+        }
+        return resultado; 
+    }
     
+    public boolean existeCamino(Object origen, Object destino) {
+        /* Dados dos elementos de TipoVertice (origen y destino), devuelve verdadero
+        si existe al menos un camino que permite llegar del vertice origen al
+        vertice destino y falso en caso contrario */
+        boolean exito = false;
+        if (this.inicio != null) {
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert destinoAux = ubicarVertice(destino);
+            if (origenAux != null && destinoAux != null) {
+                // Si ambos vertices existen, verificamos si existe camino entre ellos
+                Lista visitados = new Lista();
+                exito = existeCaminoAux(origenAux, destino, visitados);
+            }
+        }
+        return exito;
+    }
+
+    private boolean existeCaminoAux(NodoVert nodo, Object destino, Lista visitados) {
+        boolean exito = false;
+        if (nodo != null) {
+            if (nodo.getElem().equals(destino)) {
+                // Si vertice nodo es el destino, hay camino
+                exito = true;
+            } else {
+                // Si no es el destino, verifica si hay camino entre nodo y destino
+                visitados.insertar(nodo.getElem(), visitados.longitud() + 1);
+                NodoAdy ady = nodo.getPrimerAdy();
+                while (!exito && ady != null) {
+                    if (visitados.localizar(ady.getVertice().getElem()) < 0) {
+                        exito = existeCaminoAux(ady.getVertice(), destino, visitados);
+                    }
+                    ady = ady.getSigAdyacente();
+                }
+            }
+        }
+        return exito;
+    }
 }

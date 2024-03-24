@@ -3,6 +3,12 @@ public class NodoAdy {
     private NodoAdy sigAdyacente;
     private double etiqueta;
     
+    public NodoAdy(NodoVert vertice, NodoAdy sigAdyacente, double etiqueta) {
+        this.vertice = vertice;
+        this.sigAdyacente = sigAdyacente;
+        this.etiqueta = etiqueta;
+    }
+
     public NodoVert getVertice() {
         return vertice;
     }
