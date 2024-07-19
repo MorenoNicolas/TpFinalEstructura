@@ -1,4 +1,4 @@
-package TrabajoPractico;
+package trabajoPractico;
 
 public class Ciudad {
     private final int codigoPostal;

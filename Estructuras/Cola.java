@@ -1,4 +1,4 @@
-
+package estructuras;
 
 public class Cola {
     private Nodo frente;

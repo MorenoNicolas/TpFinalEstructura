@@ -1,4 +1,4 @@
-
+package estructuras;
 
  class Nodo {
     private Object element;

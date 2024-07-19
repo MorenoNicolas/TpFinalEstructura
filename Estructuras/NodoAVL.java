@@ -1,3 +1,5 @@
+package estructuras;
+
 public class NodoAVL {
     private Comparable clave;
     private Object dato;

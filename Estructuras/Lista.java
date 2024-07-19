@@ -1,4 +1,4 @@
-
+package estructuras;
 
 public class Lista {
     private Nodo cabecera;

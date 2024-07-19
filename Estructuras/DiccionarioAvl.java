@@ -1,8 +1,10 @@
-public class ArbolAVl {
+package estructuras;
+
+public class DiccionarioAvl {
 
     private NodoAVL raiz;
 
-    public ArbolAVl() {
+    public DiccionarioAvl() {
         this.raiz = null;
     }
 

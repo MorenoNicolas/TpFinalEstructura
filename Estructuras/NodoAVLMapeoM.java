@@ -1,3 +1,5 @@
+package estructuras;
+
 public class NodoAVLMapeoM {
     
     private Comparable dominio;

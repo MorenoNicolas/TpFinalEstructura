@@ -1,0 +1,111 @@
+C;6000;Villa María;Córdoba
+C;7400;Cutral Có;Neuquén
+C;8520;Allen;Río Negro
+C;2100;Casilda;Santa Fe
+C;1500;La Plata;Buenos Aires
+C;4100;Yerba Buena;Tucumán
+C;3400;Oberá;Misiones
+C;5252;La Falda;Córdoba
+C;3100;Santo Tomé;Santa Fe
+C;5800;Merlo;San Luis
+C;8532;Villa Regina;Río Negro
+C;4300;La Banda;Santiago del Estero
+C;3500;Goya;Corrientes
+C;9200;Puerto Madryn;Chubut
+C;7403;Centenario;Neuquén
+C;8318;Senillosa;Neuquén
+C;9101;Rada Tilly;Chubut
+C;8501;El Bolsón;Río Negro
+C;3570;Malabrigo;Santa Fe
+C;5720;Villa Mercedes;San Luis
+C;7417;Piedra del Águila;Neuquén
+C;5401;Caucete;San Juan
+C;3600;Villa Ángela;Chaco
+C;8510;San Antonio Oeste;Río Negro
+C;3505;Paso de los Libres;Corrientes
+C;9203;Gaiman;Chubut
+C;9420;Río Grande;Tierra del Fuego
+C;3571;Las Toscas;Santa Fe
+C;2830;Victoria;Entre Ríos
+C;8374;Choele Choel;Río Negro
+P;DNI;25678965;Pérez;Juan Carlos;298-4495117;juan.perez@gmail.com
+P;PAS;31923847;Martínez;Graciela;352-4348260;graciela.martinez@gmail.com
+P;DNI;55872136;Gómez;María Laura;262-5578899;marialaura.gomez@gmail.com
+P;DNI;60233411;Rodríguez;Julio;388-4120987;julio.rodriguez@gmail.com
+P;DNI;70128944;Álvarez;Ana María;343-6057123;ana.alvarez@gmail.com
+P;PAS;82841090;López;Carlos Alberto;12-55025698;carlosalberto.lopez@gmail.com
+P;DNI;96739010;Torres;Sofía;222-7895123;sofia.torres@gmail.com
+P;PAS;103456789;González;Martín;12-67894512;martin.gonzalez@gmail.com
+P;DNI;97651234;Ruiz;Lucía;342-4325678;lucia.ruiz@gmail.com
+P;PAS;53215678;Díaz;Pedro;12-23456789;pedro.diaz@gmail.com
+P;DNI;48765432;Suárez;Andrea;380-5543210;andrea.suarez@gmail.com
+P;DNI;39876423;Rojas;Gastón;292-7894567;gaston.rojas@gmail.com
+P;PAS;22098765;Molina;Marcela;352-8765432;marcela.molina@gmail.com
+P;DNI;56789012;García;Lucas;12-34561234;lucas.garcia@gmail.com
+P;PAS;64321678;Acosta;Valeria;388-9876543;valeria.acosta@gmail.com
+P;DNI;77891234;Lorenzo;Matías;12-12345678;matias.lorenzo@gmail.com
+P;DNI;89845612;Vargas;Ana;342-5554444;ana.vargas@gmail.com
+P;PAS;41122334;Soto;Mario;12-67891234;mario.soto@gmail.com
+P;DNI;108765432;Romero;Luciana;380-1234567;luciana.romero@gmail.com
+P;DNI;83451267;Blanco;Julia;298-5678912;julia.blanco@gmail.com
+R;8520;7400;7.7
+R;3500;4300;654.2
+R;6000;2100;421.0
+R;3100;2100;193.0
+R;6000;1500;716.4
+R;8520;1500;1156.1
+R;2100;1500;319.9
+R;6000;4100;579.4
+R;5720;5401;348.7
+R;8532;9200;704.6
+R;9203;8532;538.8
+R;3571;3100;350.2
+R;5800;4300;809.6
+R;3400;3571;577.6
+R;4100;3400;1136.9
+R;7403;8520;35.5
+R;8520;5252;1151.5
+R;9420;9203;1754.7
+R;7403;5252;1138.7
+R;4100;5252;619.5
+R;8501;7400;458.5
+R;7417;5252;1019.8
+R;3570;3400;437.1
+R;7400;8318;41.7
+R;7400;7417;153.2
+R;7400;7403;40.6
+R;9203;8374;587.6
+R;7417;5720;675.2
+R;9420;9101;1371.7
+R;9200;9101;396.4
+R;8520;8532;61.0
+R;8374;8532;153.5
+R;8374;1500;1012.9
+R;3571;4300;571.6
+R;3570;5800;978.5
+R;3570;5720;956.8
+R;3600;5401;1367.8
+R;8510;1500;933.4
+R;3505;3600;263.3
+R;3505;4300;889.0
+S;6000;7400;25/06/2023;DNI;25678965;13;5;Sarmiento 3400;Roca 2100;T
+S;8520;6000;24/06/2023;PAS;31923847;8;2;Belgrano 134;San Martín 752;F
+S;7400;6000;23/06/2023;DNI;55872136;10;4;Mitre 224;Independencia 710;T
+S;2100;9200;22/06/2023;DNI;60233411;5;1;San Martín 780;9 de Julio 100;F
+S;3400;5720;21/06/2023;PAS;82841090;15;7;Sarmiento 430;Belgrano 920;T
+S;8501;3505;20/06/2023;DNI;70128944;20;10;Roca 234;San Martín 560;T
+S;5252;3505;19/06/2023;DNI;96739010;6;3;Belgrano 320;San Martín 450;F
+S;3500;9101;18/06/2023;DNI;97651234;12;6;Mitre 980;Independencia 222;T
+S;1500;8510;17/06/2023;PAS;53215678;9;4;San Martín 110;9 de Julio 300;T
+S;9101;3570;16/06/2023;DNI;48765432;7;2;Sarmiento 120;Belgrano 440;F
+S;7417;9203;15/06/2023;DNI;39876423;15;8;Belgrano 860;San Martín 220;T
+S;3600;8374;14/06/2023;DNI;22098765;18;9;Mitre 760;Independencia 120;T
+S;9203;9101;13/06/2023;DNI;56789012;10;3;Roca 640;San Martín 330;T
+S;9200;3505;12/06/2023;PAS;64321678;7;2;Belgrano 670;San Martín 240;F
+S;5720;7403;11/06/2023;DNI;77891234;13;6;San Martín 540;9 de Julio 320;T
+S;8510;5720;10/06/2023;DNI;89845612;9;4;Mitre 450;Independencia 130;T
+S;3505;7417;09/06/2023;PAS;41122334;6;2;Sarmiento 310;Belgrano 880;T
+S;9420;3505;08/06/2023;DNI;108765432;12;5;San Martín 230;9 de Julio 110;T
+S;7400;3571;07/06/2023;DNI;83451267;8;3;Roca 740;San Martín 560;F
+S;8318;7400;06/06/2023;PAS;103456789;5;1;Belgrano 990;San Martín 670;T
+S;9203;3400;05/06/2023;PAS;103456789;5;1;Belgrano 990;San Martín 670;T

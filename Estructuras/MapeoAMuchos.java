@@ -1,3 +1,5 @@
+package estructuras;
+
 public class MapeoAMuchos {
     private NodoAVLMapeoM raiz;
     

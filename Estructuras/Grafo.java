@@ -1,3 +1,5 @@
+package estructuras;
+
 public class Grafo {
     
     private NodoVert inicio;
@@ -126,7 +128,7 @@ public class Grafo {
         }
         return resultado; 
     }
-    public boolean existeArco(NodoVert origen, Object destino){
+    public boolean existeArco(Object origen, Object destino){
         boolean exito = false;
         if(inicio != null){
             NodoVert origenAux = ubicarVertice(origen);
