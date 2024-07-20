@@ -1,5 +1,6 @@
 package estructuras;
 
+import TrabajoPractico.*;
 public class MapeoAMuchos {
     private NodoAVLMapeoM raiz;
     

@@ -1,4 +1,4 @@
-package trabajoPractico;
+package TrabajoPractico;
 
 public class Cliente {
 
@@ -8,7 +8,8 @@ public class Cliente {
     private String nombre;
     private String telefono;
     private String email;
-
+    
+    
     public Cliente(String tipoDocumento, int numeroDocumento) {
         this.tipoDocumento = tipoDocumento;
         this.numeroDocumento = numeroDocumento;

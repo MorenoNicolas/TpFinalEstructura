@@ -1,4 +1,4 @@
-package trabajoPractico;
+package TrabajoPractico;
 
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
@@ -8,17 +8,17 @@ import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.HashMap;
+import java.util.Scanner;
 
-import estructuras.DiccionarioAvl;
-import estructuras.Grafo;
-import estructuras.MapeoAMuchos;
+import estructuras.*;
 
 public class MudanzasCompartida {
     private static FileWriter logWriter;
     private static final DiccionarioAvl ciudades = new DiccionarioAvl();
     private static final MapeoAMuchos solicitudes = new MapeoAMuchos();
-    private static final Grafo mapaRutas = new Grafo();
+    private static final GrafoEtiquetado mapaRutas = new GrafoEtiquetado();
     private static final HashMap<String, Cliente> clientes = new HashMap<>();
+    private static final Scanner sc = new Scanner(System.in);
 
     public static void main(String[] args) {
         boolean exito = cargarDatos();
@@ -27,7 +27,7 @@ public class MudanzasCompartida {
             System.out.println("Bienvenido");
             System.out.println("Se ha cargado la informacion de 30 Ciudades, 20 Clientes, 40 Rutas entre esas Ciudades, y 20 Pedidos");
 
-            //menuuuu
+            menu();
         }
     }
 
@@ -60,6 +60,7 @@ public class MudanzasCompartida {
                             cargarSolicitud(Integer.parseInt(datos[1]), Integer.parseInt(datos[2]), datos[3], datos[4], Integer.parseInt(datos[5]), Integer.parseInt(datos[6]), Integer.parseInt(datos[7]), datos[8], datos[9], datos[10]);
                     }
                 }
+                br.close();
             } catch (FileNotFoundException ex) {
                 exito = false;
                 System.err.println(ex.getMessage() + " El archivo al que intenta acceder no existe o la ruta es incorrecta.");
@@ -74,7 +75,7 @@ public class MudanzasCompartida {
         public static void inicializarLog() {
             String rutaLog = "C:/Users/Walter/Documents/VsCode/TpFinalEstructura/log.txt";
             try {
-                logWriter = new FileWriter(rutaLog, true); // true para permitir agregar registros al archivo existente
+                logWriter = new FileWriter(rutaLog, false); // true para permitir agregar registros al archivo existente
                 logWriter.write("Inicio del registro: \n");
                 logWriter.flush();
             } catch (IOException ex) {
@@ -138,4 +139,62 @@ public class MudanzasCompartida {
             escribirEnLog("Una de las ciudades no se encuentra en el sistema. Error al solicitar un pedido");
         }
     }
+    public static void menu(){
+// MENU PRINCIPAL
+int respuesta;
+do {
+    System.out.println("---------------------------------------MENU---------------------------------------");
+    System.out.println("<> 1. ABM de ciudades.\n" + 
+            "<> 2. ABM de rutas.\n<> 3. ABM de clientes.\n<> 4. ABM de pedidos.\n<> 5. Consultar la informacion de un cliente."+
+            "\n<> 6. Consultar sobre ciudades.\n<> 7. Consultar sobre viajes.\n<> 8. Verificar viajes.\n<> 9. Mostrar sistema\n<> 0. Cerrar el programa.");
+    respuesta = sc.nextInt();
+    switch (respuesta) {
+        case 0:
+            System.out.println("---------------------------------------<EJECUCION TERMINADA>---------------------------------------");
+        break;
+    //     case 1:
+    //         clearLog();
+    //         ABMCiudades();
+    //     break;
+    //     case 2:
+    //         clearLog();
+    //         ABMRutas();
+    //     break;
+    //     case 3:
+    //         clearLog();
+    //         ABMClientes();
+    //     break;
+    //     case 4:
+    //         clearLog();
+    //         ABMPedidos();
+    //     break;
+    //     case 5:
+    //         clearLog();
+    //         consultarCliente();
+    //     break;
+    //     case 6:
+    //         clearLog();
+    //         consultaCiudades();
+    //     break;
+    //     case 7:
+    //         clearLog();
+    //         consultasViajes();
+    //     break;
+    //     case 8:
+    //         clearLog();
+    //         verificarViaje();
+    //     break;
+    //     case 9:
+    //         clearLog();
+    //         mostrarSistema();
+    //     break;
+         default:
+             System.out.println("RESPUESTA INVALIDA");
+             break;
+    }
+} while (respuesta!=0);
+sc.close();
+
 }
+}
+

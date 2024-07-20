@@ -1,4 +1,4 @@
-package trabajoPractico;
+package TrabajoPractico;
 
 public class Solicitud {
     private int cantMetrosCubicos;

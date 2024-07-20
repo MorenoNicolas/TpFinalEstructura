@@ -1,9 +1,10 @@
-package trabajoPractico;
+package TrabajoPractico;
 
 public class Ciudad {
     private final int codigoPostal;
     private String nombre;
     private String provincia;
+    
     
     public Ciudad(int codigoPostal) {
         this.codigoPostal = codigoPostal;
