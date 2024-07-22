@@ -114,19 +114,20 @@ public class Lista {
     }
 
     public String toString() {
-        String cadena = "";
-        int i, largo = longitud();
+        String resultado = "";
         Nodo aux = this.cabecera;
-
-        for (i = 1; i <= largo; i++) {
-            if (i == 1) {
-                cadena = cadena + aux.getElem().toString();
-            } else {
-                cadena = cadena + "," + aux.getElem().toString();
+        if (esVacia()) {
+            resultado = "La lista esta vacia";
+        } else {
+            while (aux != null) {
+                resultado = resultado + aux.getElem().toString();
+                aux = aux.getEnlace();
+                if (aux != null) {
+                    resultado = resultado + ", \n";
+                }
             }
-            aux = aux.getEnlace();
         }
-        return cadena;
+        return resultado;
     }
 
     public Lista obtenerMultiplos(int num) {
