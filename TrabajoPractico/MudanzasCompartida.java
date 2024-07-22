@@ -10,6 +10,8 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
+import javax.sound.midi.Soundbank;
+
 import estructuras.*;
 
 public class MudanzasCompartida {
@@ -168,14 +170,12 @@ do {
     //         clearLog();
     //         ABMPedidos();
     //     break;
-    //     case 5:
-    //         clearLog();
-    //         consultarCliente();
-    //     break;
-    //     case 6:
-    //         clearLog();
-    //         consultaCiudades();
-    //     break;
+        case 5:
+            consultarCliente();
+        break;
+        case 6:
+            consultaCiudades();
+        break;
     //     case 7:
     //         clearLog();
     //         consultasViajes();
@@ -195,6 +195,43 @@ do {
 } while (respuesta!=0);
 sc.close();
 
+}
+public static void consultarCliente(){
+    System.out.println("Ingrese TIPO de Dni del cliente a consultar");
+    String tipo = sc.next();
+    System.out.println("Ingrese Dni del cliente a consultar");
+    String dni = sc.next();
+    
+    if(clientes.containsKey(tipo+dni)){
+        System.out.println("INFORMACION DE: " +clientes.get(tipo+dni).getNombre());
+        System.out.println(clientes.get(tipo+dni).toString());
+    } else {
+        System.out.println("CLIENTE NO ENCONTRADO");
+    }
+}
+public static void consultaCiudades(){
+    int respuesta;
+    do{
+        System.out.println("-------------------------CONSULTA DE CIUDADES--------------------------");
+        System.out.println("<> 1. Mostrar toda la informacion de una ciudad.\n<> 2. Mostrar ciudades con un prefijo particular.\n<> 3. Volver al menu.");
+        respuesta = sc.nextInt();
+        switch(respuesta){
+            case 1:
+                informacionDeUnaCiudad();
+            break;
+            case 2:
+                //ciudadesConPrefijo();
+            break;
+            case 3:
+            break;   //VUELVE AL MENU
+            default:
+                System.out.println("RESPUESTA INVALIDA.");
+            break;
+        }
+    }while(respuesta!=3);
+}
+public static void informacionDeUnaCiudad(){
+    
 }
 }
 
