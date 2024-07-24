@@ -10,8 +10,6 @@ import java.util.Date;
 import java.util.HashMap;
 import java.util.Scanner;
 
-import javax.sound.midi.Soundbank;
-
 import estructuras.*;
 
 public class MudanzasCompartida {
@@ -196,10 +194,9 @@ public class MudanzasCompartida {
                 case 7:
                     consultasViajes();
                     break;
-                // case 8:
-                // clearLog();
-                // verificarViaje();
-                // break;
+                case 8:
+                    verificarViaje();
+                    break;
                 // case 9:
                 // clearLog();
                 // mostrarSistema();
@@ -288,18 +285,20 @@ public class MudanzasCompartida {
         do {
             System.out.println("-------------------------CONSULTA DE VIAJES--------------------------");
             System.out.println(
-                    "<> 1. Obtener el camino que llegue de A a B que pase por menos ciudades.\n<> 2. Obtener el camino que llegue de A a B de menor distancia en kilómetros.\n<> 3. Obtener todos los caminos posibles para llegar de A a B que pasen por una"
-                            + 
-                    "ciudad C dada sin pasar dos veces por la misma ciudad.\n<> 4. Verificar si es posible llegar de A a B recorriendo como máximo una cantidad X de kilómetros \n<> 5. Volver al Menu");
+                    "<> 1. Obtener el camino que llegue de A a B que pase por menos ciudades.\n<> 2. Obtener el camino que llegue de A a B de menor distancia en kilómetros.\n<> 3. Obtener todos los caminos posibles de A a B que pasen por una"
+                            +
+                            " ciudad C sin pasar dos veces por la misma ciudad.\n<> 4. Verificar si es posible llegar de A a B recorriendo como máximo una cantidad X de kilómetros \n<> 5. Volver al Menu");
             respuesta = sc.nextInt();
             switch (respuesta) {
                 case 1:
+                    caminoMenosCiudades();
                     break;
                 case 2:
+                    caminoMenosKilometros();
                     break;
-                case 3:
-                    break; 
-                case 4:
+                case 3:// camino de A a B que pase por C sin pasar 2 veces por la misma ciudad
+                    break;
+                case 4:// llegar de A a B con X
                     break;
                 case 5:// VUELVE AL MENU
                     break;
@@ -308,5 +307,118 @@ public class MudanzasCompartida {
                     break;
             }
         } while (respuesta != 5);
+    }
+
+    public static void caminoMenosCiudades() {
+        System.out.println("Ingrese el codigo de la ciudad A inicial");
+        int codigoA = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad B final");
+        int codigoB = sc.nextInt();
+
+        Lista camino = mapaRutas.caminoMasCorto(codigoA, codigoB);
+        if (camino != null) {
+            System.out.println("EL CAMINO QUE PASA POR MENOS CIUDADES ES: \n" + camino.toString());
+        } else {
+            System.out.println("NO EXISTE UN CAMINO ENTRE AMBAS CIUDADES");
+        }
+    }
+
+    public static void caminoMenosKilometros() {
+        System.out.println("Ingrese el codigo de la ciudad A inicial");
+        int codigoA = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad B final");
+        int codigoB = sc.nextInt();
+
+        Lista camino = mapaRutas.caminoMasRapido(codigoA, codigoB);
+        if (camino != null) {
+            System.out.println("EL CAMINO QUE TIENE MENOS KM ES: \n" + camino.toString());
+        } else {
+            System.out.println("NO EXISTE UN CAMINO ENTRE AMBAS CIUDADES");
+        }
+    }
+
+    public static void verificarViaje() {
+        int respuesta;
+        do {
+            System.out.println("-------------------VERIFICAR VIAJES-------------------");
+            System.out.println(
+                    "<> 1. Dada una ciudad A y una ciudad B mostrar todos los pedidos y calcular cuanto espacio total hace falta en el camion"
+                            +
+                            "\n<> 2.Verificar si sobra espacio para solicitudes intermedias.\n<> 3.Verificar un camino perfecto usando una lista. \n<> 4.Volver al Menu");
+            respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    pedidosYCalcularEspacio();
+                    break;
+                case 2: // espacioSobrante();
+                    break;
+                case 3:
+                    verificarCaminoPerfecto();
+                    break;
+                case 4:// volver al menu
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } while (respuesta != 4);
+    }
+
+    public static void pedidosYCalcularEspacio() {
+        System.out.println("Ingrese el codigo de la ciudad A inicial");
+        int codigoA = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad B final");
+        int codigoB = sc.nextInt();
+        Lista listaSolicitudes = solicitudes.obtenerValores(codigoA + "" + codigoB);
+        if (mapaRutas.existeVertice(codigoA) && mapaRutas.existeVertice(codigoB)) {
+            if (!listaSolicitudes.esVacia()) {
+                int espacio = 0;
+                System.out.println("Las solicitudes son:\n " + listaSolicitudes.toString());
+                for (int i = 1; i <= listaSolicitudes.longitud(); i++) {
+                    Solicitud solicitud = (Solicitud) listaSolicitudes.recuperar(i);
+                    espacio = espacio + solicitud.getCantMetrosCubicos();
+                }
+                System.out.println("El espacio necesario de: " + codigoA + " a " + codigoB + " en el camion es de: "
+                        + espacio + " m3");
+            } else {
+                System.out.println("NO HAY PEDIDOS ENTRE LAS CIUDADES");
+            }
+        } else {
+            System.out.println("LOS CODIGOS DE CIUDADES SON INCORRECTOS");
+        }
+    }
+    public static void verificarCaminoPerfecto(){
+        Lista camino = new Lista();
+        System.out.println("Ingrese la capacidad del camion");
+        int capacidad = sc.nextInt();
+        System.out.println("Ingrese la cantidad de ciudades que va a verificar si cumplen un camino perfecto");
+        int cantCiudades = sc.nextInt();
+        for (int i = 0; i < cantCiudades; i++) {
+            System.out.println("Ingrese una ciudad ("+(i+1)+")");
+            String codPostal = sc.next();
+            camino.insertar(codPostal, camino.longitud()+1);
+        }
+        int i = 1, espacioNecesario = 0;
+        boolean seguir = true;
+        while(i<cantCiudades && seguir && espacioNecesario<=capacidad){
+            String codOrigen = (String) camino.recuperar(i);
+            int k = i+1;
+            seguir=false;
+            while(k<=cantCiudades && !seguir) {
+                String codDestino = (String) camino.recuperar(k);
+                if(mapaRutas.existeCamino(codOrigen, codDestino) && solicitudes.obtenerValores(codOrigen+""+codDestino)!=null){
+                    Solicitud solicitud = (Solicitud) camino.recuperar(1);
+                    espacioNecesario = espacioNecesario + solicitud.getCantMetrosCubicos();
+                    seguir = true;
+                }
+                k++;
+            }
+            i++;
+        }
+        if(seguir){
+            System.out.println("EXISTE UN CAMINO PERFECTO.");
+        } else {
+            System.out.println("NO EXISTE CAMINO PERFECTO");
+        }
     }
 }

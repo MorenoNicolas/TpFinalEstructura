@@ -21,7 +21,7 @@ public class GrafoEtiquetado {
         return exito;
     }
 
-    private NodoVert ubicarVertice(Object buscado) {
+    public NodoVert ubicarVertice(Object buscado) {
         NodoVert aux = this.inicio;
         while (aux != null && !aux.getElem().equals(buscado)) {
             aux = aux.getSigVertice();
@@ -169,42 +169,39 @@ public class GrafoEtiquetado {
     }
 
     public boolean existeCamino(Object origen, Object destino) {
-        /* Dados dos elementos de TipoVertice (origen y destino), devuelve verdadero
-        si existe al menos un camino que permite llegar del vertice origen al
-        vertice destino y falso en caso contrario */
         boolean exito = false;
-        if (this.inicio != null) {
-            NodoVert origenAux = ubicarVertice(origen);
-            NodoVert destinoAux = ubicarVertice(destino);
-            if (origenAux != null && destinoAux != null) {
-                // Si ambos vertices existen, verificamos si existe camino entre ellos
+        if (!origen.equals(destino) && this.inicio != null) {
+            NodoVert nOrigen = ubicarVertice(origen);
+            NodoVert nDestino = ubicarVertice(destino);
+            if (nOrigen != null && nDestino != null) {
                 Lista visitados = new Lista();
-                exito = existeCaminoAux(origenAux, destino, visitados);
+                exito = existeCaminoAux(nOrigen, destino, visitados);
+            } else {
+                System.out.println("No se encontraron los nodos origen o destino.");
             }
         }
         return exito;
     }
 
-    private boolean existeCaminoAux(NodoVert nodo, Object destino, Lista visitados) {
+    private boolean existeCaminoAux(NodoVert nAux, Object destino, Lista visitados) {
         boolean exito = false;
-        if (nodo != null) {
-            if (nodo.getElem().equals(destino)) {
-                // Si vertice nodo es el destino, hay camino
+        if (nAux != null) {
+            if (nAux.getElem().equals(destino)) {
                 exito = true;
             } else {
-                // Si no es el destino, verifica si hay camino entre nodo y destino
-                visitados.insertar(nodo.getElem(), visitados.longitud() + 1);
-                NodoAdy ady = nodo.getPrimerAdy();
-                while (!exito && ady != null) {
-                    if (visitados.localizar(ady.getVertice().getElem()) < 0) {
-                        exito = existeCaminoAux(ady.getVertice(), destino, visitados);
+                visitados.insertar(nAux.getElem(), visitados.longitud() + 1);
+                NodoAdy aux = nAux.getPrimerAdy();
+                while (!exito && aux != null) {
+                    if (visitados.localizar(aux.getVertice().getElem()) < 0) {
+                        exito = existeCaminoAux(aux.getVertice(), destino, visitados);
                     }
-                    ady = ady.getSigAdyacente();
+                    aux = aux.getSigAdyacente();
                 }
             }
         }
         return exito;
     }
+    
 
     public Lista caminoMasCorto(Object origen, Object destino) {
         /* Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
