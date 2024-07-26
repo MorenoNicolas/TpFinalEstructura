@@ -1,6 +1,7 @@
 package TrabajoPractico;
 
 import java.io.BufferedReader;
+import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -169,10 +170,9 @@ public class MudanzasCompartida {
                     System.out.println(
                             "---------------------------------------<EJECUCION TERMINADA>---------------------------------------");
                     break;
-                // case 1:
-                // clearLog();
-                // ABMCiudades();
-                // break;
+                case 1:
+                    ABMCiudades();
+                    break;
                 // case 2:
                 // clearLog();
                 // ABMRutas();
@@ -197,17 +197,63 @@ public class MudanzasCompartida {
                 case 8:
                     verificarViaje();
                     break;
-                // case 9:
-                // clearLog();
-                // mostrarSistema();
-                // break;
+                case 9:
+                    mostrarSistema();
+                    break;
                 default:
                     System.out.println("RESPUESTA INVALIDA");
                     break;
             }
         } while (respuesta != 0);
         sc.close();
+    }
 
+    public static void ABMCiudades() {
+        int respuesta;
+        do {
+            System.out.println("------------------------------------ABMCiudades-----------------------------------");
+            System.out.println(
+                    "<> 1. Agregar una ciudad. \n<> 2. Eliminar una ciudad. \n<> 3. Editar una ciudad.\n<> 4. Volver al menu.");
+            respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    agregarCiudad();
+                    break;
+                case 2:
+                    eliminarCiudad();
+                    break;
+                case 3:
+                    // editarCiudad();
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } while (respuesta != 4);
+    }
+
+    public static void agregarCiudad() {
+        String nombre, provincia;
+        int codigoPostal;
+        System.out.println("Ingrese los datos de la nueva ciudad a continuacion");
+        System.out.println("Nombre de la ciudad:");
+        nombre = sc.next();
+        System.out.println("Provincia de la ciudad:");
+        provincia = sc.next();
+        System.out.println("Codigo postal de la ciudad:");
+        codigoPostal = sc.nextInt();
+        if (!ciudades.existeClave(codigoPostal)) {
+            cargarCiudad(codigoPostal, nombre, provincia);
+            System.out.println("LA CIUDAD FUE AGREGADA CON EXITO.");
+        } else {
+            System.out.println("LA CIUDAD YA ESTABA INGRESADA, NO SE AGREGO.");
+        }
+    }
+
+    public static void eliminarCiudad() {
+        
     }
 
     public static void consultarCliente() {
@@ -353,7 +399,7 @@ public class MudanzasCompartida {
                 case 2: // espacioSobrante();
                     break;
                 case 3:
-                    verificarCaminoPerfecto();
+                    caminoPerfecto();
                     break;
                 case 4:// volver al menu
                     break;
@@ -387,38 +433,100 @@ public class MudanzasCompartida {
             System.out.println("LOS CODIGOS DE CIUDADES SON INCORRECTOS");
         }
     }
-    public static void verificarCaminoPerfecto(){
-        Lista camino = new Lista();
-        System.out.println("Ingrese la capacidad del camion");
-        int capacidad = sc.nextInt();
-        System.out.println("Ingrese la cantidad de ciudades que va a verificar si cumplen un camino perfecto");
-        int cantCiudades = sc.nextInt();
-        for (int i = 0; i < cantCiudades; i++) {
-            System.out.println("Ingrese una ciudad ("+(i+1)+")");
-            String codPostal = sc.next();
-            camino.insertar(codPostal, camino.longitud()+1);
-        }
-        int i = 1, espacioNecesario = 0;
-        boolean seguir = true;
-        while(i<cantCiudades && seguir && espacioNecesario<=capacidad){
-            String codOrigen = (String) camino.recuperar(i);
-            int k = i+1;
-            seguir=false;
-            while(k<=cantCiudades && !seguir) {
-                String codDestino = (String) camino.recuperar(k);
-                if(mapaRutas.existeCamino(codOrigen, codDestino) && solicitudes.obtenerValores(codOrigen+""+codDestino)!=null){
-                    Solicitud solicitud = (Solicitud) camino.recuperar(1);
-                    espacioNecesario = espacioNecesario + solicitud.getCantMetrosCubicos();
-                    seguir = true;
+
+    public static void caminoPerfecto() {
+        int capacidad, codigo, longitud, i = 1;
+        boolean exito = true;
+        Lista listaCodigo = new Lista();
+        System.out.println(
+                "Dada una lista de Ciudades y una cantidad de metros cubicos que corresponden a capacidad del camion, verificar si es un “camino perfecto”");
+        System.out.println("---------------------------------------------------------------------");
+        System.out.println("Ingrese la cantidad de metros cubicos de capacidad del camion");
+        capacidad = sc.nextInt();
+        System.out.println("Ingrese una cantidad de Ciudades");
+        longitud = sc.nextInt();
+        if (longitud > 1) {
+            while (i <= longitud && exito) {
+                System.out.println("Ingrese el codigo postal de la Ciudad a insertar en la Lista");
+                codigo = sc.nextInt();
+                if (mapaRutas.existeVertice(codigo)) {
+                    listaCodigo.insertar(codigo, i);
+                } else {
+                    exito = false;
                 }
-                k++;
+                i++;
+            }
+            if (exito) {
+                verificarCaminoPerfecto(listaCodigo, capacidad);
+            } else {
+                System.out.println("Una de las Ciudades ingresadas no existe en el sistema. ERROR");
+            }
+        } else {
+            System.out.println("Ingrese un numero valido de Ciudades");
+        }
+    }
+
+    public static void verificarCaminoPerfecto(Lista lista, int capacidad) {
+        int i = 1, ocupacion = 0;
+        boolean exito = true;
+        while (i < lista.longitud() && exito) {
+            int origen = (int) lista.recuperar(i), destino = (int) lista.recuperar(i + 1);
+            if (mapaRutas.existeArco(origen, destino)) {
+                Lista listaPedidos = solicitudes.obtenerValores(origen + "" + destino);
+                if (listaPedidos.esVacia()) {
+                    System.out.println(
+                            "No es camino perfecto ya que no existen Pedidos entre " + origen + " y " + destino);
+                    exito = false;
+                } else {
+                    Solicitud solicitud = (Solicitud) listaPedidos.recuperar(1);
+                    ocupacion = ocupacion + solicitud.getCantMetrosCubicos();
+                }
+            } else {
+                exito = false;
+                System.out.println(
+                        "No es camino perfecto ya que no existe una ruta entre la Ciudad " + origen + " y " + destino);
             }
             i++;
         }
-        if(seguir){
-            System.out.println("EXISTE UN CAMINO PERFECTO.");
-        } else {
-            System.out.println("NO EXISTE CAMINO PERFECTO");
+        if (exito) {
+            if (capacidad >= ocupacion) {
+                System.out.println("Es camino perfecto");
+            } else {
+                System.out.println("No es camino perfecto ya que la capacidad del camion no soporta todos los pedidos");
+            }
         }
+    }
+
+    public static void mostrarSistema() {
+        int respuesta;
+        do {
+            System.out.println("<> 1. Mostrar las ciudades.\n<> 2. Mostrar las rutas.\n<> 3. Mostrar los pedidos" +
+                    "\n<> 4. Mostrar los clientes.\n<> 5. Volver al menu.");
+            respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    System.out.println("------------SISTEMA DE CIUDADES------------");
+                    System.out.println(ciudades.toString());
+                    break;
+                case 2:
+                    System.out.println("------------SISTEMA DE RUTAS------------");
+                    System.out.println(mapaRutas.toString());
+                    break;
+                case 3:
+                    System.out.println("------------SISTEMA DE PEDIDOS------------");
+                    System.out.println(solicitudes.toString());
+                    break;
+                case 4:
+                    System.out.println("------------SISTEMA DE CLIENTES------------");
+                    System.out.println(clientes.toString());
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } while (respuesta != 5);
+
     }
 }
