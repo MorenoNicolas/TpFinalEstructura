@@ -223,7 +223,7 @@ public class MudanzasCompartida {
                     eliminarCiudad();
                     break;
                 case 3:
-                    // editarCiudad();
+                    editarCiudad();
                     break;
                 case 4:
                     break;
@@ -253,7 +253,54 @@ public class MudanzasCompartida {
     }
 
     public static void eliminarCiudad() {
-        
+        // METODO QUE ELIMINA UNA CIUDAD DEL SISTEMA
+        int codigo;
+        System.out.println("Ingrese el codigo postal de la Ciudad a eliminar");
+        codigo = sc.nextInt();
+        // PARA ELIMINARLA, LA CIUDAD DEBE EXISTIR
+        if (ciudades.existeClave(codigo)) {
+            System.out.println("Se elimino la ciudad con codigo: " + codigo + " con exito1");
+            ciudades.eliminar(codigo); 
+            mapaRutas.eliminarVertice(codigo);
+            escribirEnLog("La Ciudad con codigo postal " + codigo + " se elimino del sistema");
+            } else {
+                System.out.println("La Ciudad con codigo postal " + codigo + " no existe. ERROR");
+                escribirEnLog("NO se pudo eliminar la Ciudad con codigo postal " + codigo);
+            }
+    }
+
+    public static void editarCiudad(){
+        System.out.println("Ingrese el codigo postal de la ciudad que quiere editar: ");
+        String codigoPostal = sc.nextLine();
+        codigoPostal = sc.nextLine();
+        Ciudad aux = (Ciudad)ciudades.obtenerDato(codigoPostal);
+        if(aux!=null){
+            System.out.println("<> 1. Editar nombre.\n<> 2. Editar provincia.");
+            int respuesta = sc.nextInt();
+            switch(respuesta){
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre:");
+                    String nuevoNomb = sc.nextLine();
+                    nuevoNomb = sc.nextLine();
+                    aux.setNombre(nuevoNomb);
+                    System.out.println("Nombre de la ciudad editado con exito.");
+                    escribirEnLog("La Ciudad con codigo postal " + codigoPostal + " ahora se llama " + nuevoNomb);
+                break;
+                case 2:
+                    System.out.println("Ingrese la nueva provincia:");
+                    String nuevaProv = sc.nextLine();
+                    nuevaProv = sc.nextLine();
+                    aux.setProvincia(nuevaProv);
+                    System.out.println("Provincia de la ciudad editada con exito");
+                    escribirEnLog("La Ciudad con codigo postal " + codigoPostal + " ahora pertenece a: " + nuevaProv);
+                break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA, volviendo al ABM.");
+                break;
+            }
+        } else {
+            System.out.println("La Ciudad con codigo postal " + codigoPostal + " no existe. ERROR");
+        }
     }
 
     public static void consultarCliente() {
