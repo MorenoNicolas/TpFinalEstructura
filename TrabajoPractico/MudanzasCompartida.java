@@ -28,14 +28,13 @@ public class MudanzasCompartida {
             System.out.println("Bienvenido");
             System.out.println(
                     "Se ha cargado la informacion de 30 Ciudades, 20 Clientes, 40 Rutas entre esas Ciudades, y 20 Pedidos");
-
             menu();
         }
     }
 
     public static boolean cargarDatos() {
         // Corregir la ruta del archivo
-        String nombreArchivo = "C:/Users/Walter/Documents/VsCode/TpFinalEstructura/cargarDatos.txt";
+        String nombreArchivo = "C:/Users/Nicolas/.vscode/TpFinalEstructura/cargarDatos.txt";
         boolean exito = true;
         System.out.println("Iniciando la carga de datos...");
         String[] datos;
@@ -79,7 +78,7 @@ public class MudanzasCompartida {
     }
 
     public static void inicializarLog() {
-        String rutaLog = "C:/Users/Walter/Documents/VsCode/TpFinalEstructura/log.txt";
+        String rutaLog = "C:/Users/Nicolas/.vscode/TpFinalEstructura/log.txt";
         try {
             logWriter = new FileWriter(rutaLog, false); // true para permitir agregar registros al archivo existente
             logWriter.write("Inicio del registro: \n");
@@ -173,10 +172,9 @@ public class MudanzasCompartida {
                 case 1:
                     ABMCiudades();
                     break;
-                // case 2:
-                // clearLog();
-                // ABMRutas();
-                // break;
+                case 2:
+                    ABMRutas();
+                    break;
                 // case 3:
                 // clearLog();
                 // ABMClientes();
@@ -260,24 +258,24 @@ public class MudanzasCompartida {
         // PARA ELIMINARLA, LA CIUDAD DEBE EXISTIR
         if (ciudades.existeClave(codigo)) {
             System.out.println("Se elimino la ciudad con codigo: " + codigo + " con exito1");
-            ciudades.eliminar(codigo); 
+            ciudades.eliminar(codigo);
             mapaRutas.eliminarVertice(codigo);
             escribirEnLog("La Ciudad con codigo postal " + codigo + " se elimino del sistema");
-            } else {
-                System.out.println("La Ciudad con codigo postal " + codigo + " no existe. ERROR");
-                escribirEnLog("NO se pudo eliminar la Ciudad con codigo postal " + codigo);
-            }
+        } else {
+            System.out.println("La Ciudad con codigo postal " + codigo + " no existe. ERROR");
+            escribirEnLog("NO se pudo eliminar la Ciudad con codigo postal " + codigo);
+        }
     }
 
-    public static void editarCiudad(){
+    public static void editarCiudad() {
         System.out.println("Ingrese el codigo postal de la ciudad que quiere editar: ");
         String codigoPostal = sc.nextLine();
         codigoPostal = sc.nextLine();
-        Ciudad aux = (Ciudad)ciudades.obtenerDato(codigoPostal);
-        if(aux!=null){
+        Ciudad aux = (Ciudad) ciudades.obtenerDato(codigoPostal);
+        if (aux != null) {
             System.out.println("<> 1. Editar nombre.\n<> 2. Editar provincia.");
             int respuesta = sc.nextInt();
-            switch(respuesta){
+            switch (respuesta) {
                 case 1:
                     System.out.println("Ingrese el nuevo nombre:");
                     String nuevoNomb = sc.nextLine();
@@ -285,7 +283,7 @@ public class MudanzasCompartida {
                     aux.setNombre(nuevoNomb);
                     System.out.println("Nombre de la ciudad editado con exito.");
                     escribirEnLog("La Ciudad con codigo postal " + codigoPostal + " ahora se llama " + nuevoNomb);
-                break;
+                    break;
                 case 2:
                     System.out.println("Ingrese la nueva provincia:");
                     String nuevaProv = sc.nextLine();
@@ -293,13 +291,87 @@ public class MudanzasCompartida {
                     aux.setProvincia(nuevaProv);
                     System.out.println("Provincia de la ciudad editada con exito");
                     escribirEnLog("La Ciudad con codigo postal " + codigoPostal + " ahora pertenece a: " + nuevaProv);
-                break;
+                    break;
                 default:
                     System.out.println("RESPUESTA INVALIDA, volviendo al ABM.");
-                break;
+                    break;
             }
         } else {
             System.out.println("La Ciudad con codigo postal " + codigoPostal + " no existe. ERROR");
+        }
+    }
+
+    public static void ABMRutas() {
+        int respuesta;
+        do {
+            System.out.println("------------------------------------ABMRutas-----------------------------------");
+            System.out.println(
+                    "<> 1. Agregar una ruta. \n<> 2. Eliminar una ruta. \n<> 3. Editar los kilometros de una ruta.\n<> 4. Volver al menu.");
+            respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    agregarRuta();
+                    break;
+                case 2:
+                    eliminarRuta();
+                    break;
+                case 3:
+                    editarRuta();
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } while (respuesta != 4);
+    }
+
+    public static void agregarRuta() {
+        System.out.println("Ingrese el codigo postal de la ciudad origen de la nueva ruta: ");
+        int codPostal1 = sc.nextInt();
+        System.out.println("Ingrese el codigo postal de la ciudad destino de la nueva ruta: ");
+        int codPostal2 = sc.nextInt();
+        System.out.println("Ingrese la distancia en kilometros entre las 2 ciudades: ");
+        double kilometros = sc.nextDouble();
+        if (!mapaRutas.existeArco(codPostal1, codPostal1)) {
+            cargarMapa(codPostal1, codPostal2, kilometros);
+            System.out.println("RUTA INSERTADA CON EXITO.");
+            escribirEnLog("Se creo la ruta desde: " + codPostal1 + " hasta " + codPostal2);
+        } else {
+            System.out.println("LA RUTA NO PUDO SER INSERTADA.");
+        }
+    }
+
+    public static void eliminarRuta() {
+        System.out.println("Ingrese el codigo postal de la ciudad origen de la ruta a eliminar: ");
+        int codPostal1 = sc.nextInt();
+        System.out.println("Ingrese el codigo postal de la ciudad destino de la ruta a eliminar: ");
+        int codPostal2 = sc.nextInt();
+        if (mapaRutas.existeArco(codPostal1, codPostal2)) {
+            mapaRutas.eliminarArco(codPostal1, codPostal2);
+            System.out.println("RUTA ELIMINADA CON EXITO.");
+            escribirEnLog("Se elimino la ruta desde: " + codPostal1 + " hasta " + codPostal2);
+        } else {
+            System.out.println("LA RUTA NO PUDO SER ELIMINADA.");
+        }
+        ;
+    }
+
+    public static void editarRuta() {
+        System.out.println("Ingrese el codigo postal de la ciudad origen de la ruta a editar: ");
+        int codPostal1 = sc.nextInt();
+        System.out.println("Ingrese el codigo postal de la ciudad destino de la ruta a editar: ");
+        int codPostal2 = sc.nextInt();
+        System.out.println("Ingrese la nueva distancia en kilometros entre las 2 ciudades: ");
+        double kilometros = sc.nextDouble();
+        if (mapaRutas.existeArco(codPostal1, codPostal2)) {
+            mapaRutas.eliminarArco(codPostal1, codPostal2);
+            cargarMapa(codPostal1, codPostal2, kilometros);
+            escribirEnLog("Se actualizaron los kilometros a: " + kilometros + " de la ruta desde " + codPostal1+ " hasta " + codPostal2);
+            System.out.println("RUTA EDITADA CON EXITO.");
+        } else {
+            System.out.println("LA RUTA NO PUDO SER EDITADA.");
         }
     }
 
