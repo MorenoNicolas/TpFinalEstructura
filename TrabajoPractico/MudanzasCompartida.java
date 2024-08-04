@@ -175,14 +175,12 @@ public class MudanzasCompartida {
                 case 2:
                     ABMRutas();
                     break;
-                // case 3:
-                // clearLog();
-                // ABMClientes();
-                // break;
-                // case 4:
-                // clearLog();
-                // ABMPedidos();
-                // break;
+                case 3:
+                    ABMClientes();
+                    break;
+                case 4:
+                    ABMPedidos();
+                    break;
                 case 5:
                     consultarCliente();
                     break;
@@ -368,10 +366,123 @@ public class MudanzasCompartida {
         if (mapaRutas.existeArco(codPostal1, codPostal2)) {
             mapaRutas.eliminarArco(codPostal1, codPostal2);
             cargarMapa(codPostal1, codPostal2, kilometros);
-            escribirEnLog("Se actualizaron los kilometros a: " + kilometros + " de la ruta desde " + codPostal1+ " hasta " + codPostal2);
+            escribirEnLog("Se actualizaron los kilometros a: " + kilometros + " de la ruta desde " + codPostal1
+                    + " hasta " + codPostal2);
             System.out.println("RUTA EDITADA CON EXITO.");
         } else {
             System.out.println("LA RUTA NO PUDO SER EDITADA.");
+        }
+    }
+
+    public static void ABMClientes() {
+        int respuesta;
+        do {
+            System.out.println("------------------------------------ABMClientes-----------------------------------");
+            System.out.println(
+                    "<> 1. Agregar un cliente. \n<> 2. Eliminar un cliente. \n<> 3. Editar un cliente.\n<> 4. Volver al menu.");
+            respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    agregarCliente();
+                    break;
+                case 2:
+                    eliminarCliente();
+                    break;
+                case 3:
+                    editarCliente();
+                    break;
+                case 4:
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } while (respuesta != 4);
+    }
+
+    public static void eliminarCliente() {
+        System.out.println("Ingrese el tipo DNI del cliente a eliminar: ");
+        String tipoDni = sc.next().toUpperCase();
+        System.out.println("Ingrese el DNI del cliente a eliminar:");
+        String dni = sc.next();
+        if (clientes.containsKey(tipoDni + dni)) {
+            Cliente aux = clientes.get(tipoDni + dni);
+            escribirEnLog("Se elimino el cliente: " + aux.getNombre() + " " + aux.getApellido());
+            clientes.remove(tipoDni + dni);
+            System.out.println("EL CLIENTE FUE ELIMINADO CON EXITO");
+        } else {
+            System.out.println("EL CLIENTE NO ESTA INGRESADO, POR ENDE NO FUE ELIMINADO");
+        }
+    }
+
+    public static void editarCliente() {
+        System.out.println("Ingrese el tipo DNI del cliente a editar: ");
+        String tipoDni = sc.next().toUpperCase();
+        System.out.println("Ingrese el DNI del cliente a editar:");
+        String dni = sc.next();
+        if (clientes.containsKey(tipoDni + dni)) {
+            System.out.println(
+                    "<> 1. Editar nombre. \n<> 2. Editar apellido. \n<> 3. Editar numero de telefono.\n<> 4. Editar e-mail.\n<> 5. Volver al ABMClientes");
+            int respuesta = sc.nextInt();
+            switch (respuesta) {
+                case 1:
+                    System.out.println("Ingrese el nuevo nombre del cliente (en un solo mensaje): ");
+                    String nombre = sc.next();
+                    clientes.get(tipoDni + dni).setNombre(nombre);
+                    escribirEnLog("Se actualizo el nombre de: " + tipoDni + ": " + dni + " A " + nombre);
+                    System.out.println("EL NOMBRE FUE ACTUALIZADO CON EXITO");
+                    break;
+                case 2:
+                    System.out.println("Ingrese el nuevo apellido del cliente (en un solo mensaje): ");
+                    String apellido = sc.next();
+                    clientes.get(tipoDni + dni).setApellido(apellido);
+                    escribirEnLog("Se actualizo el apellido de: " + tipoDni + ": " + dni + " A " + apellido);
+                    System.out.println("EL APELLIDO FUE ACTUALIZADO CON EXITO");
+                    break;
+                case 3:
+                    System.out.println("Ingrese el nuevo numero de telefono del cliente: ");
+                    String numero = sc.next();
+                    clientes.get(tipoDni + dni).setTelefono(numero);
+                    escribirEnLog("Se actualizo el telofono de: " + tipoDni + ": " + dni + " A " + numero);
+                    System.out.println("EL NUMERO DE TELEFONO FUE ACTUALIZADO CON EXITO");
+                    break;
+                case 4:
+                    System.out.println("Ingrese el nuevo e-mail del cliente: ");
+                    String email = sc.next();
+                    clientes.get(tipoDni + dni).setEmail(email);
+                    escribirEnLog("Se actualizo el e-mail de: " + tipoDni + ": " + dni + " A " + email);
+                    System.out.println("EL EMAIL FUE ACTUALIZADO CON EXITO");
+                    break;
+                case 5:
+                    break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                    break;
+            }
+        } else {
+            System.out.println("TIPO DNI O NUMERO INCORRECTO");
+        }
+    }
+
+    public static void agregarCliente() {
+        System.out.println("Ingrese el tipo DNI del nuevo cliente: ");
+        String tipoDni = sc.next().toUpperCase();
+        System.out.println("Ingrese el DNI del nuevo cliente");
+        String dni = sc.next();
+        if (!clientes.containsKey(tipoDni + dni)) {
+            System.out.println("Ingrese el/los apellido/s del nuevo cliente (en un solo mensaje): ");
+            String apellidos = sc.next();
+            System.out.println("Ingrese el/los nombre/s del nuevo cliente (en un solo mensaje): ");
+            String nombres = sc.next();
+            System.out.println("Ingrese el numero de telefono del nuevo cliente: ");
+            String telefono = sc.next();
+            System.out.println("Ingrese el email del nuevo cliente: ");
+            String email = sc.next();
+            cargarCliente(tipoDni, 0, apellidos, nombres, telefono, email);
+            escribirEnLog("Se agrego el cliente: " + tipoDni + dni);
+            System.out.println("CLIENTE AGREGADO CON EXITO.");
+        } else {
+            System.out.println("EL CLIENTE YA ESTABA INGRESADO, POR ENDE NO FUE AGREGADO.");
         }
     }
 
@@ -386,6 +497,179 @@ public class MudanzasCompartida {
             System.out.println(clientes.get(tipo + dni).toString());
         } else {
             System.out.println("CLIENTE NO ENCONTRADO");
+        }
+    }
+    public static void ABMPedidos(){
+        int respuesta;
+        do{
+            System.out.println("------------------------------------ABMPedidos-----------------------------------");
+            System.out.println("<> 1. Agregar un pedido. \n<> 2. Eliminar los pedidos de un cliente.\n<> 3. Editar un pedido \n<> 4. Volver al menu.");
+            respuesta = sc.nextInt();
+            switch(respuesta){
+                case 1:
+                    agregarPedido();
+                break;
+                case 2:
+                    eliminarPedido();
+                break;
+                case 3:
+                    editarPedido();
+                break;
+                case 4:
+                break;
+                default:
+                    System.out.println("RESPUESTA INVALIDA.");
+                break;
+            }
+        } while(respuesta!=4);
+    }
+
+    public static void editarPedido(){
+            System.out.println("Ingrese el tipo de documento del cliente: ");
+            String tipoDni = sc.next().toUpperCase();
+            System.out.println("Ingrese el numero de documento del ciente: ");
+            String dni = sc.next();
+            System.out.println("Ingrese la ciudad de origen del pedido (codigo postal): ");
+            String ciudadOrigen = sc.next();        
+            System.out.println("Ingrese la ciudad de destino del pedido (codigo postal): ");
+            String ciudadDestino = sc.next();
+            SolicitudViaje laSolicitud = (SolicitudViaje)pedidos.obtenerRangoDe(ciudadOrigen, ciudadDestino, tipoDni+dni);
+            boolean salir=false;
+            if(laSolicitud!=null){
+                do{
+                    menuEditarPedido();
+                    int respuesta = sc.nextInt();
+                    switch(respuesta){
+                        case 1:
+                            System.out.println(ANSI_WHITE+"Ingrese la nueva cantidad de metros cubicos: "+ANSI_RESET);
+                            int cantMetrosCubicos = sc.nextInt();
+                            laSolicitud.setCantMetrosCubicos(cantMetrosCubicos);
+                            System.out.println(ANSI_GREEN+"CANTIDAD DE METROS CUBICOS ACTUALIZADOS CON EXITO."+ANSI_RESET);
+                            bufferedWriter.write("SE EDITO LA CANTIDAD DE METROS CUBOS EN LA SOLICITUD DE VIAJE DEL CLIENTE: "+laSolicitud.getClave());
+                            salir = true;
+                        break;
+                        case 2:
+                            System.out.println(ANSI_WHITE+"Ingrese la nueva cantidad de bultos: "+ANSI_RESET);
+                            int cantBultos = sc.nextInt();
+                            laSolicitud.setCantBultos(cantBultos);
+                            System.out.println(ANSI_GREEN+"CANTIDAD DE BULTOS ACTUALIZADOS CON EXITO."+ANSI_RESET);
+                            bufferedWriter.write("SE EDITO LA CANTIDAD DE BULTOS EN LA SOLICITUD DE VIAJE DEL CLIENTE: "+laSolicitud.getClave());
+                            salir = true;                
+                        break;
+                        case 3:
+                            System.out.println(ANSI_WHITE+"Ingrese la nueva direccion de retiro: "+ANSI_RESET);
+                            String nuevoRetiro = sc.nextLine();
+                            nuevoRetiro = sc.nextLine();
+                            laSolicitud.setDireccionRetiro(nuevoRetiro);
+                            System.out.println(ANSI_GREEN+"NUEVA DIRECCION DE RETIRO ACTUALIZADA CON EXITO."+ANSI_RESET);
+                            bufferedWriter.write("SE ACTUALIZO LA DIRECCION DE RETIRO EN LA SOLICITUD DEL CLIENTE: "+laSolicitud.getClave());
+                            salir = true;
+                        break;
+                        case 4:
+                            System.out.println(ANSI_WHITE+"Ingrese la nueva direccion de entrega: "+ANSI_RESET);
+                            String nuevaEntrega = sc.nextLine();
+                            nuevaEntrega = sc.nextLine();
+                            laSolicitud.setDomicilioEntrega(nuevaEntrega);
+                            System.out.println(ANSI_GREEN+"NUEVA DIRECCION DE ENTREGA ACTUALIZADA CON EXITO."+ANSI_RESET);
+                            bufferedWriter.write("SE ACTUALIZO LA DIRECCION DE ENTREGA EN LA SOLICITUD DEL CLIENTE: "+laSolicitud.getClave());
+                            salir = true;
+                        break;
+                        case 5:
+                            if(laSolicitud.estaPago()){
+                                System.out.println(ANSI_GREEN+"LA SOLICITUD FIGURABA COMO PAGADA, AHORA FIGURA COMO PENDIENTE POR PAGAR."+ANSI_RESET);
+                                bufferedWriter.write("AHORA LA SOLICITUD DE: "+laSolicitud.getClave()+" FIGURA COMO PENDIENTE POR PAGAR."+"\n");
+                                laSolicitud.setEstaPago(false);
+                            } else {
+                                System.out.println(ANSI_GREEN+"LA SOLICITUD FIGURABA COMO PENDIENTE POR PAGAR, AHORA FIGURA COMO PAGADA."+ANSI_RESET);
+                                bufferedWriter.write("AHORA LA SOLICITUD DE: "+laSolicitud.getClave()+" FIGURA COMO PAGADA.");
+                                laSolicitud.setEstaPago(true);
+                            }
+                            salir = true;
+                        break;
+                        default:
+                            System.out.println(ANSI_RED+"RESPUESTA INVALIDA."+ANSI_RESET);
+                        break;
+                    }
+                } while(!salir);
+            } else {
+                System.out.println(ANSI_RED+"NO SE PUDO ENCONTRAR LA SOLICITUD"+ANSI_RESET);
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void menuEditarPedido(){
+        System.out.println(ANSI_YELLOW+"<> 1. Editar la cantidad de metros cubicos.\n<> 2. Editar la cantidad de bultos.\n<> 3. Editar la direccion de retiro"
+        +"\n<> 4. Editar la direccion de entrega.\n<> 5. Editar si esta pago."+ANSI_RESET);
+    }
+
+    public static void eliminarPedido(){
+        try {
+            FileWriter fileWriter = new FileWriter("tpo\\operacionesABM.txt" , true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            System.out.println(ANSI_WHITE+"Ingrese los datos necesarios a continuacion: "+ANSI_RESET);
+            System.out.println(ANSI_WHITE+"Ingrese el tipo de documento del cliente: "+ANSI_RESET);
+            String tipoDni = sc.next().toUpperCase();
+            System.out.println(ANSI_WHITE+"Ingrese el numero de documento del ciente: "+ANSI_RESET);
+            String dni = sc.next();
+            System.out.println(ANSI_WHITE+"Ingrese la ciudad de origen del pedido (codigo postal): "+ANSI_RESET);
+            String ciudadOrigen = sc.next();        
+            System.out.println(ANSI_WHITE+"Ingrese la ciudad de destino del pedido (codigo postal): "+ANSI_RESET);
+            String ciudadDestino = sc.next();
+            if(pedidos.desasociar(ciudadOrigen+""+ciudadDestino, ciudadDestino, tipoDni+dni)){
+                bufferedWriter.write("SE ELIMINO EL PEDIDO DEL CLIENTE "+tipoDni+dni+" QUE IBA DESDE "+ciudadOrigen+" A "+ciudadDestino);
+                System.out.println(ANSI_GREEN+"PEDIDO ELIMINADO CON EXITO"+ANSI_RESET);
+            } else {
+                System.out.println(ANSI_RED+"EL PEDIDO NO PUDO SER ELIMINADO"+ANSI_RESET);
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void agregarPedido(){
+        FileWriter fileWriter;
+        try {
+            fileWriter = new FileWriter("tpo\\operacionesABM.txt", true);
+            BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+            System.out.println(ANSI_WHITE+"Ingrese los datos del nuevo pedido a continuacion: "+ANSI_RESET);
+            System.out.println(ANSI_WHITE+"Ingrese la ciudad origen del pedido (codigo postal): "+ANSI_RESET);
+            int ciudadOrigen = sc.nextInt();
+            System.out.println(ANSI_WHITE+"Ingrese la ciudad destino del pedido (codigo postal): "+ANSI_RESET);
+            String ciudadDestino = sc.next();
+            String auxOrigen = String.valueOf(ciudadOrigen);
+            if(rutas.existeCamino(auxOrigen, ciudadDestino)){
+                System.out.println(ANSI_WHITE+"Ingrese la fecha del pedido: "+ANSI_RESET);
+                String fecha = sc.next();
+                System.out.println(ANSI_WHITE+"Ingrese el tipo DNI del cliente: "+ANSI_RESET);
+                String tipoDni = sc.next();
+                System.out.println(ANSI_WHITE+"Ingrese el DNI del cliente"+ANSI_RESET);
+                int dni = sc.nextInt();
+                System.out.println(ANSI_WHITE+"Ingrese la cantidad de metros cubicos a ocupar en el camion: "+ANSI_RESET);
+                int metrosCubicos = sc.nextInt();
+                System.out.println(ANSI_WHITE+"Ingrese la cantidad de bultos del pedido: "+ANSI_RESET);
+                int cantBultos = sc.nextInt();
+                System.out.println(ANSI_WHITE+"Ingrese la direccion del domicilio de retiro del pedido: "+ANSI_RESET);
+                String direccionRetiro = sc.nextLine();
+                direccionRetiro = sc.nextLine();
+                System.out.println(ANSI_WHITE+"Ingrese la direccion del domicilio de entrega del pedido: "+ANSI_RESET);
+                String direccionEntrega = sc.nextLine();
+                System.out.println(ANSI_WHITE+"Ingrese si el pedido esta pago o no (SI para true NO para false): "+ANSI_RESET);
+                String respuestaPago = sc.next();
+                boolean estaPago = "SI".equals(respuestaPago.toUpperCase());
+                SolicitudViaje aux = new SolicitudViaje(fecha, tipoDni, dni,metrosCubicos,cantBultos,direccionRetiro,direccionEntrega,estaPago,ciudadDestino,String.valueOf(ciudadOrigen));
+                pedidos.asociar(ciudadOrigen+""+ciudadDestino, aux);
+                bufferedWriter.write("SE AGREGO LA SOLICITUD: "+aux.toString());
+                System.out.println(ANSI_GREEN+"EL PEDIDO FUE AGREGADO CON EXITO"+ANSI_RESET);
+            } else {
+                System.out.println(ANSI_RED+"NO EXISTE UNA RUTA ENTRE LAS CIUDADES, NO SE PUEDE AGREGAR EL PEDIDO."+ANSI_RED);
+            }
+            bufferedWriter.close();
+        } catch (IOException e) {
+            e.printStackTrace();
         }
     }
 

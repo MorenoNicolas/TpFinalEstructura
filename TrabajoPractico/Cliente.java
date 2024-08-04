@@ -70,7 +70,7 @@ public class Cliente {
 
     @Override
     public String toString() {
-        return "Cliente con " + this.tipoDocumento + " N°" + this.numeroDocumento + ". "
+        return "Cliente con " + this.tipoDocumento + " No: " + this.numeroDocumento + ". "
                 + this.apellido + ", " + this.nombre + " con telefono: "
                 + this.telefono + " y email: " + this.email;
     }
