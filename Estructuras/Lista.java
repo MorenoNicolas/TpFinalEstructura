@@ -1,5 +1,7 @@
 package estructuras;
 
+import TrabajoPractico.Solicitud;
+
 public class Lista {
     private Nodo cabecera;
 
@@ -250,5 +252,43 @@ public class Lista {
             cabecera.setElem(nuevo);
             cabecera.setEnlace(new Nodo(viejo, cabecera.getEnlace()));
         }
+    }
+        public Object buscarSolicitud(Object solicitud) {
+        Object resultado = null;
+        Solicitud nodo;
+        Nodo aux = this.cabecera;
+        while(aux != null && resultado == null) {
+            nodo = (Solicitud) aux.getElem();
+            if(nodo.equals((Solicitud)solicitud)) {
+                resultado = aux.getElem();
+            } else {
+                aux = aux.getEnlace();
+            }
+        }
+        return resultado;
+    }
+
+    public boolean eliminarSolicitud(Object elem) {
+        boolean exito = false;
+        Solicitud elemAux = (Solicitud) elem;
+        if(this.cabecera != null) {
+            Solicitud solicitud = (Solicitud) this.cabecera.getElem();
+            if(solicitud.equals(elemAux)) {
+                this.cabecera = this.cabecera.getEnlace();
+                exito = true;
+            } else {
+                Nodo aux = this.cabecera;
+                while (aux.getEnlace() != null && !exito) {
+                    solicitud = (Solicitud) aux.getEnlace().getElem();
+                    if(solicitud.equals(elemAux)) {
+                        aux.setEnlace(aux.getEnlace().getEnlace());
+                        exito = true;
+                    } else {
+                        aux = aux.getEnlace();
+                    }
+                }
+            }
+        }
+        return exito;
     }
 }

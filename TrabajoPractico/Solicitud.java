@@ -103,7 +103,7 @@ public class Solicitud {
 
     @Override
     public String toString() {
-        return "Pedido hecho por: " + this.tipoDocumento + " N°" + this.numeroDocumento
+        return "Pedido hecho por: " + this.tipoDocumento + " No" + this.numeroDocumento
                 + ", de " + this.ciudadOrigen + " a " + this.ciudadDestino + " el "
                 + this.fechaSolicitud + ", que ocupa " + this.cantMetrosCubicos
                 + "m3 y consta de " + this.cantBultos + " bultos. Se entrega en "
