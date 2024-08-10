@@ -632,12 +632,13 @@ public class MudanzasCompartida {
             direccionRetiro = sc.nextLine();
             System.out.println("Ingrese la direccion del domicilio de entrega del pedido: ");
             String direccionEntrega = sc.nextLine();
-            System.out.println( "Ingrese si el pedido esta pago o no (T para true, F para false): ");
+            System.out.println("Ingrese si el pedido esta pago o no (T para true, F para false): ");
             String estaPago = sc.next();
-            cargarSolicitud(ciudadOrigen, ciudadDestino, fecha, tipoDni, dni, metrosCubicos, cantBultos, direccionRetiro, direccionEntrega, estaPago);
+            cargarSolicitud(ciudadOrigen, ciudadDestino, fecha, tipoDni, dni, metrosCubicos, cantBultos,
+                    direccionRetiro, direccionEntrega, estaPago);
             System.out.println("SE AGREGO EL PEDIDO CORRECTAMENTE");
         } else {
-            System.out.println( "NO EXISTE UNA RUTA ENTRE LAS CIUDADES, NO SE PUEDE AGREGAR EL PEDIDO.");
+            System.out.println("NO EXISTE UNA RUTA ENTRE LAS CIUDADES, NO SE PUEDE AGREGAR EL PEDIDO.");
         }
     }
 
@@ -713,9 +714,11 @@ public class MudanzasCompartida {
                 case 2:
                     caminoMenosKilometros();
                     break;
-                case 3:// camino de A a B que pase por C sin pasar 2 veces por la misma ciudad
+                case 3:
+                    caminoPorC();
                     break;
-                case 4:// llegar de A a B con X
+                case 4:
+                    caminoXkilometrosMax();
                     break;
                 case 5:// VUELVE AL MENU
                     break;
@@ -752,6 +755,39 @@ public class MudanzasCompartida {
         } else {
             System.out.println("NO EXISTE UN CAMINO ENTRE AMBAS CIUDADES");
         }
+    }
+
+    public static void caminoXkilometrosMax() {
+        System.out.println("Ingrese el codigo de la ciudad A inicial");
+        int codigoA = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad B final");
+        int codigoB = sc.nextInt();
+        System.out.println("Ingrese la cantidad maxima de kilometros que desea recorrer:");
+        int cantKm = sc.nextInt();
+
+        double kmCamino = mapaRutas.caminoMasRapidoenKM(codigoA, codigoB);
+        if (kmCamino < cantKm) {
+            System.out.println("ES POSIBLE IR DE " + codigoA + " A " + codigoB + " RECORRIENDO: " + kmCamino + " KM");
+        } else {
+            System.out.println("NO EXISTE UN CAMINO CON MENOS KM QUE EL INGRESADO ");
+        }
+    }
+
+    public static void caminoPorC() {
+        System.out.println("Ingrese el codigo de la ciudad A inicial");
+        int codigoA = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad C intermedia");
+        int codigoC = sc.nextInt();
+        System.out.println("Ingrese el codigo de la ciudad B final");
+        int codigoB = sc.nextInt();
+
+        Lista camino = mapaRutas.caminosConIntermedio(codigoA, codigoC, codigoB);
+
+        if(!camino.esVacia()){
+            System.out.println("POSIBLES CAMINOS:" + camino.toString());
+        }else{
+            System.out.println("NO EXISTEN CAMINOS");
+        } 
     }
 
     public static void verificarViaje() {

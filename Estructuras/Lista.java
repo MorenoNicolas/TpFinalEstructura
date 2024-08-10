@@ -291,4 +291,19 @@ public class Lista {
         }
         return exito;
     }
+    public Lista concat(Lista otraLista) {
+        Lista nuevaLista = new Lista();
+        
+        // Insertar todos los elementos de la primera lista en la nueva lista
+        for (int i = 1; i <= this.longitud(); i++) {
+            nuevaLista.insertar(this.recuperar(i), nuevaLista.longitud() + 1);
+        }
+
+        // Insertar todos los elementos de la segunda lista en la nueva lista
+        for (int j = 1; j <= otraLista.longitud(); j++) {
+            nuevaLista.insertar(otraLista.recuperar(j), nuevaLista.longitud() + 1);
+        }
+
+        return nuevaLista;
+    }
 }

@@ -1,7 +1,9 @@
 package estructuras;
 
+import java.lang.reflect.Array;
+
 public class GrafoEtiquetado {
-    
+
     private NodoVert inicio;
 
     public GrafoEtiquetado() {
@@ -9,9 +11,11 @@ public class GrafoEtiquetado {
     }
 
     public boolean insertarVertice(Object elem) {
-        /* Dado un elemento de TipoVertice se lo agrega a la estructura controlando
-        que no se inserten vertices repetidos. Si puede realizar la insercion 
-        devuelve verdadero, en caso contrario devuelve falso */
+        /*
+         * Dado un elemento de TipoVertice se lo agrega a la estructura controlando
+         * que no se inserten vertices repetidos. Si puede realizar la insercion
+         * devuelve verdadero, en caso contrario devuelve falso
+         */
         boolean exito = false;
         NodoVert aux = ubicarVertice(elem);
         if (aux == null) {
@@ -30,10 +34,12 @@ public class GrafoEtiquetado {
     }
 
     public boolean eliminarVertice(Object elem) {
-        /* Dado un elemento de TipoVertice se lo quita de la estructura. Si se 
-        encuentra el vertice, tambien deben eliminarse todos los arcos que lo 
-        tengan como origen o destino. Si se puede realizar la eliminacion con 
-        exito devuelve verdadero, en caso contrario devuelve falso */
+        /*
+         * Dado un elemento de TipoVertice se lo quita de la estructura. Si se
+         * encuentra el vertice, tambien deben eliminarse todos los arcos que lo
+         * tengan como origen o destino. Si se puede realizar la eliminacion con
+         * exito devuelve verdadero, en caso contrario devuelve falso
+         */
         boolean exito = false;
         if (this.inicio != null) {
             if (this.inicio.getElem().equals(elem)) {
@@ -78,7 +84,8 @@ public class GrafoEtiquetado {
     }
 
     public boolean existeVertice(Object buscado) {
-        // Dado un elemento, devuelve verdadero si esta en la estructura y falso en caso contrario
+        // Dado un elemento, devuelve verdadero si esta en la estructura y falso en caso
+        // contrario
         boolean resultado = false;
         if (this.inicio != null) {
             NodoVert aux = this.inicio;
@@ -94,9 +101,11 @@ public class GrafoEtiquetado {
     }
 
     public boolean insertarArco(Object origen, Object destino, double etiqueta) {
-        /* Dados dos elementos de TipoVertice (origen y destino) agrega el arco 
-        en la estructura, solo si ambos vertices ya existen en el grafo. Si puede
-        realizar la insercion devuelve verdadero, en caso contrario devuelve falso */
+        /*
+         * Dados dos elementos de TipoVertice (origen y destino) agrega el arco
+         * en la estructura, solo si ambos vertices ya existen en el grafo. Si puede
+         * realizar la insercion devuelve verdadero, en caso contrario devuelve falso
+         */
         boolean exito = false;
         if (this.inicio != null) {
             NodoVert origenAux = ubicarVertice(origen);
@@ -111,10 +120,12 @@ public class GrafoEtiquetado {
     }
 
     public boolean eliminarArco(Object origen, Object destino) {
-        /* Dados dos elementos de TipoVertice (origen y destino) se quita de la 
-        estructura el arco que une ambos vertices. Si el arco existe y se puede 
-        realizar la eliminacion con éxito devuelve verdadero, en caso contrario
-        devuelve falso */
+        /*
+         * Dados dos elementos de TipoVertice (origen y destino) se quita de la
+         * estructura el arco que une ambos vertices. Si el arco existe y se puede
+         * realizar la eliminacion con éxito devuelve verdadero, en caso contrario
+         * devuelve falso
+         */
         boolean exito = false;
         if (this.inicio != null) {
             NodoVert origenAux = ubicarVertice(origen);
@@ -149,8 +160,10 @@ public class GrafoEtiquetado {
     }
 
     public boolean existeArco(Object origen, Object destino) {
-        /* Dados dos elementos de TipoVertice (origen y destino), devuelve verdadero
-        si existe un arco en la estructura que los une y falso en caso contrario */
+        /*
+         * Dados dos elementos de TipoVertice (origen y destino), devuelve verdadero
+         * si existe un arco en la estructura que los une y falso en caso contrario
+         */
         boolean resultado = false;
         if (this.inicio != null) {
             NodoVert origenAux = ubicarVertice(origen);
@@ -201,15 +214,16 @@ public class GrafoEtiquetado {
         }
         return exito;
     }
-    
 
     public Lista caminoMasCorto(Object origen, Object destino) {
-        /* Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
-        (lista de vertices) que indique el camino que pasa por menos vertices que
-        permite llegar del vertice origen al vertice destino. Si hay mas de un 
-        camino con igual cantidad de vertices, devuelve cualquiera de ellos. Si
-        alguno de los vertices no existe o no hay camino posible entre ellos 
-        devuelve la lista vacia */
+        /*
+         * Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
+         * (lista de vertices) que indique el camino que pasa por menos vertices que
+         * permite llegar del vertice origen al vertice destino. Si hay mas de un
+         * camino con igual cantidad de vertices, devuelve cualquiera de ellos. Si
+         * alguno de los vertices no existe o no hay camino posible entre ellos
+         * devuelve la lista vacia
+         */
         Lista visitados = new Lista();
         Lista actual = new Lista();
         Lista res = new Lista();
@@ -240,12 +254,12 @@ public class GrafoEtiquetado {
                     ady = ady.getSigAdyacente();
                 }
             }
-            actual.eliminar(actual.longitud()); //ya lo visite, lo elimino del camino
+            actual.eliminar(actual.longitud()); // ya lo visite, lo elimino del camino
             visitados.eliminar(visitados.longitud());
         }
         return res;
     }
-    
+
     public Lista caminoMasRapido(Object origen, Object destino) {
         Lista visitados = new Lista();
         Lista actual = new Lista();
@@ -261,13 +275,14 @@ public class GrafoEtiquetado {
         return res;
     }
 
-    private Lista caminoMasRapidoAux(NodoVert vert, Object destino, double kmAux, double[] menosKM, Lista visitados, Lista actual, Lista res) {
+    private Lista caminoMasRapidoAux(NodoVert vert, Object destino, double kmAux, double[] menosKM, Lista visitados,
+            Lista actual, Lista res) {
         if (vert != null) {
             visitados.insertar(vert.getElem(), visitados.longitud() + 1);
             actual.insertar(vert.getElem(), actual.longitud() + 1);
             if (vert.getElem().equals(destino)) {
                 double km = menosKM[0];
-                if(km == 0 || km > kmAux) {
+                if (km == 0 || km > kmAux) {
                     menosKM[0] = kmAux;
                     res = actual.clone();
                 }
@@ -287,13 +302,115 @@ public class GrafoEtiquetado {
         return res;
     }
 
+    // Metodo que busca el camino mas corto pero devuelve su kilometraje
+    public double caminoMasRapidoenKM(Object origen, Object destino) {
+        Lista visitados = new Lista();
+        Lista actual = new Lista();
+        double res = 0;
+        double[] menosKM = new double[1];
+        if (this.inicio != null) {
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert destinoAux = ubicarVertice(destino);
+            if (origenAux != null && destinoAux != null) {
+                res = caminoMasRapidoAuxEnKm(origenAux, destino, 0, menosKM, visitados, actual, res);
+            }
+        }
+        return res;
+    }
+
+    private double caminoMasRapidoAuxEnKm(NodoVert vert, Object destino, double kmAux, double[] menosKM,
+            Lista visitados, Lista actual, double res) {
+        if (vert != null) {
+            visitados.insertar(vert.getElem(), visitados.longitud() + 1);
+            actual.insertar(vert.getElem(), actual.longitud() + 1);
+            if (vert.getElem().equals(destino)) {
+                double km = menosKM[0];
+                if (km == 0 || km > kmAux) {
+                    menosKM[0] = kmAux;
+                }
+            } else {
+                NodoAdy ady = vert.getPrimerAdy();
+                while (ady != null) {
+                    if (visitados.localizar(ady.getVertice().getElem()) < 0) {
+                        double aux = kmAux + ady.getEtiqueta();
+                        res = caminoMasRapidoAuxEnKm(ady.getVertice(), destino, aux, menosKM, visitados, actual, res);
+                    }
+                    ady = ady.getSigAdyacente();
+                }
+            }
+            actual.eliminar(actual.longitud());
+            visitados.eliminar(visitados.longitud());
+        }
+        return menosKM[0];
+    }
+
+    // Método que encuentra todos los caminos de A a B pasando por C
+    public Lista caminosConIntermedio(Object origen, Object intermedio, Object destino) {
+        Lista visitados = new Lista();
+        Lista actual = new Lista();
+        Lista res = new Lista();
+        Lista union = new Lista();
+
+        if (this.inicio != null) {
+
+            NodoVert origenAux = ubicarVertice(origen);
+            NodoVert intermedioAux = ubicarVertice(intermedio);
+            NodoVert destinoAux = ubicarVertice(destino);
+
+            Lista listaA_C = new Lista();
+            Lista listaC_B = new Lista();
+
+            if (origenAux != null && intermedioAux != null && destinoAux != null) {
+                // Encontramos todos los caminos de A a C
+                listaA_C = listarCaminoAux(origenAux, intermedioAux.getElem(), visitados, actual,res);
+                // Si se encontró un camino de A a C, buscamos un camino de C a B
+                if (!listaA_C.esVacia()) {
+                    listaC_B = listarCaminoAux(intermedioAux, destinoAux.getElem(), listaA_C, actual,res);
+                }
+                // Si ambos caminos existen, combinamos los resultados
+                if (!listaA_C.esVacia() && !listaC_B.esVacia()) {
+                    listaA_C.eliminar(listaA_C.longitud());
+                    union = listaA_C.concat(listaC_B);
+                }
+            }
+        }
+        return union;
+    }
+
+    private Lista listarCaminoAux(NodoVert vert, Object destino, Lista visitados, Lista actual, Lista res) {
+        if (vert != null) {
+            visitados.insertar(vert.getElem(), visitados.longitud() + 1);
+            actual.insertar(vert.getElem(), actual.longitud() + 1);
+            if (vert.getElem().equals(destino)) {
+                if ((actual.longitud() < res.longitud()) || res.esVacia()) {
+                    res = actual.clone();
+                }
+            } else {
+                NodoAdy ady = vert.getPrimerAdy();
+                while (ady != null) {
+                    if (visitados.localizar(ady.getVertice().getElem()) < 0) {
+                        res = caminoMasCortoAux(ady.getVertice(), destino, visitados, actual, res);
+                    }
+                    ady = ady.getSigAdyacente();
+                }
+            }
+            actual.eliminar(actual.longitud()); //ya lo visite, lo elimino del camino
+            visitados.eliminar(visitados.longitud());
+        }
+        return res;
+    }
+
     public Lista caminoMasLargo(Object origen, Object destino) {
-        /* Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
-        (lista de vertices) que indique el camino que pasa por más vertices (sin ciclos)
-        que permite llegar del vertice origen al vertice destino. Si hay mas de un
-        camino con igual cantidad de vertices, devuelve cualquiera de ellos. Si 
-        alguno de los vertices no existe o no hay camino posible entre ellos 
-        devuelve la lista vacía */
+        /*
+         * Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
+         * (lista de vertices) que indique el camino que pasa por más vertices (sin
+         * ciclos)
+         * que permite llegar del vertice origen al vertice desti.getEtno. Si hay mas de
+         * un
+         * camino con igual cantidad de vertices, devuelve cualquiera de ellos. Si
+         * alguno de los vertices no existe o no hay camino posible entre ellos
+         * devuelve la lista vacía
+         */
         Lista visitados = new Lista();
         Lista actual = new Lista();
         Lista res = new Lista();
@@ -306,7 +423,7 @@ public class GrafoEtiquetado {
         }
         return res;
     }
-    
+
     private Lista caminoMasLargoAux(NodoVert vert, Object destino, Lista visitados, Lista actual, Lista res) {
         if (vert != null) {
             visitados.insertar(vert.getElem(), visitados.longitud() + 1);
@@ -324,14 +441,15 @@ public class GrafoEtiquetado {
                     ady = ady.getSigAdyacente();
                 }
             }
-            actual.eliminar(actual.longitud()); //ya lo visite, lo elimino del camino
+            actual.eliminar(actual.longitud()); // ya lo visite, lo elimino del camino
             visitados.eliminar(visitados.longitud());
         }
         return res;
     }
 
     public Lista listarEnProfundidad() {
-        // Devuelve una lista con los vertices del grafo visitados segun el recorrido en profundidad
+        // Devuelve una lista con los vertices del grafo visitados segun el recorrido en
+        // profundidad
         Lista visitados = new Lista();
         // Define un vertice donde empezar a recorrer
         NodoVert aux = this.inicio;
@@ -361,7 +479,8 @@ public class GrafoEtiquetado {
     }
 
     public Lista listarEnAnchura() {
-        // Devuelve una lista con los vertices del grafo visitados según el recorrido en anchura
+        // Devuelve una lista con los vertices del grafo visitados según el recorrido en
+        // anchura
         Lista visitados = new Lista();
         NodoVert aux = this.inicio;
         while (aux != null) {
@@ -397,8 +516,10 @@ public class GrafoEtiquetado {
 
     @Override
     public GrafoEtiquetado clone() {
-        /* Genera y devuelve un grafo que es equivalente (igual estructura y 
-        contenido de los nodos) al original */
+        /*
+         * Genera y devuelve un grafo que es equivalente (igual estructura y
+         * contenido de los nodos) al original
+         */
         GrafoEtiquetado grafoClon = new GrafoEtiquetado();
         if (this.inicio != null) {
             grafoClon.inicio = new NodoVert(this.inicio.getElem(), null);
@@ -411,11 +532,13 @@ public class GrafoEtiquetado {
     private void clonarAdyacentes(NodoVert vertOriginal, NodoVert vertClon) {
         if (vertOriginal != null) {
             if (vertOriginal.getPrimerAdy() != null) {
-                vertClon.setPrimerAdy(new NodoAdy(vertOriginal.getPrimerAdy().getVertice(), null, vertOriginal.getPrimerAdy().getEtiqueta()));
+                vertClon.setPrimerAdy(new NodoAdy(vertOriginal.getPrimerAdy().getVertice(), null,
+                        vertOriginal.getPrimerAdy().getEtiqueta()));
                 NodoAdy ady1 = vertOriginal.getPrimerAdy();
                 NodoAdy ady2 = vertClon.getPrimerAdy();
                 while (ady1.getSigAdyacente() != null) {
-                    ady2.setSigAdyacente(new NodoAdy(ady1.getSigAdyacente().getVertice(), null, ady1.getSigAdyacente().getEtiqueta()));
+                    ady2.setSigAdyacente(new NodoAdy(ady1.getSigAdyacente().getVertice(), null,
+                            ady1.getSigAdyacente().getEtiqueta()));
                     ady1 = ady1.getSigAdyacente();
                     ady2 = ady2.getSigAdyacente();
                 }
@@ -435,13 +558,16 @@ public class GrafoEtiquetado {
 
     @Override
     public String toString() {
-        /* Con fines de debugging, este metodo genera y devuelve una cadena String
-        que muestra los vertices almacenados en el grafo y que adyacentes tiene cada uno de ellos */
+        /*
+         * Con fines de debugging, este metodo genera y devuelve una cadena String
+         * que muestra los vertices almacenados en el grafo y que adyacentes tiene cada
+         * uno de ellos
+         */
         String resultado;
         if (this.inicio != null) {
             resultado = toStringAux(this.inicio);
         } else {
-            resultado = "El grafo esta vacio ¿?";
+            resultado = "El grafo esta vacio ";
         }
         return resultado;
     }
