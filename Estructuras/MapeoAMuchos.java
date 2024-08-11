@@ -363,8 +363,7 @@ public class MapeoAMuchos {
     }
     
     public Lista obtenerValores(Comparable valorDominio) {
-        /* Si en el mapeo se encuentra almacenado algun par cuyo dominio es valorDominio, 
-        devuelve el conjunto de valores de rango asociado a el. Precondición: valorDominio
+        /* devuelve el conjunto de valores de rango asociado a el. Precondición: valorDominio
         está en el mapeo (si no existe, no se puede asegurar el funcionamiento de la operación) */
         Lista resultado = new Lista();
         if (this.raiz != null) {
