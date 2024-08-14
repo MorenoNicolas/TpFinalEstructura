@@ -1,7 +1,5 @@
 package estructuras;
 
-import java.lang.reflect.Array;
-
 public class GrafoEtiquetado {
 
     private NodoVert inicio;
