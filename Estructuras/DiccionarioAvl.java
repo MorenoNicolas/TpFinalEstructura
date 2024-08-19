@@ -33,7 +33,7 @@ public class DiccionarioAvl {
             // Si tiene HI baja a la izquierda, sino lo setea
             if (nodo.getIzquierdo() != null) {
                 exito = insertarAux(nodo.getIzquierdo(), nodo, clave, dato);
-                balancear(nodo.getIzquierdo(), nodo);
+                //balancear(nodo.getIzquierdo(), nodo);
             } else {
                 nodo.setIzquierdo(new NodoAVL(clave, dato, null, null));
             }
@@ -43,7 +43,7 @@ public class DiccionarioAvl {
             // Si tiene HD baja a la derecha, sino lo setea
             if (nodo.getDerecho() != null) {
                 exito = insertarAux(nodo.getDerecho(), nodo, clave, dato);
-                balancear(nodo.getDerecho(), nodo);
+                //balancear(nodo.getDerecho(), nodo);
             } else {
                 nodo.setDerecho(new NodoAVL(clave, dato, null, null));
             }
@@ -62,6 +62,7 @@ public class DiccionarioAvl {
         int balanceHijo;
         balanceNodo = balance(nodo);
         if (nodo != null) {
+            System.out.println("Entra a balancear nodo: "+nodo.getClave());
             if (balanceNodo == 2) {
                 // Torcido hacia la izquierda
                 balanceHijo = balance(nodo.getIzquierdo());

@@ -1,7 +1,6 @@
 package TrabajoPractico;
 
 import java.io.BufferedReader;
-import java.io.BufferedWriter;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -80,7 +79,7 @@ public class MudanzasCompartida {
     public static void inicializarLog() {
         String rutaLog = "C:/Users/Nicolas/.vscode/TpFinalEstructura/log.txt";
         try {
-            logWriter = new FileWriter(rutaLog, false); // true para permitir agregar registros al archivo existente
+            logWriter = new FileWriter(rutaLog, false); // false para permitir agregar registros al archivo existente
             logWriter.write("Inicio del registro: \n");
             logWriter.flush();
         } catch (IOException ex) {

@@ -128,7 +128,7 @@ public class Lista {
                 resultado = resultado + aux.getElem().toString();
                 aux = aux.getEnlace();
                 if (aux != null) {
-                    resultado = resultado + ", \n";
+                    resultado = resultado + ", ";
                 }
             }
         }

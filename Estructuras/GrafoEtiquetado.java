@@ -1,5 +1,7 @@
 package estructuras;
 
+import java.util.concurrent.TimeUnit;
+
 public class GrafoEtiquetado {
 
     private NodoVert inicio;
@@ -237,13 +239,22 @@ public class GrafoEtiquetado {
 
     private Lista caminoMasCortoAux(NodoVert vert, Object destino, Lista visitados, Lista actual, Lista res) {
         if (vert != null) {
+            if ((actual.longitud() < res.longitud()) || res.esVacia()) {
             visitados.insertar(vert.getElem(), visitados.longitud() + 1);
+            System.out.println(visitados.toString()+ " V");
             actual.insertar(vert.getElem(), actual.longitud() + 1);
-            if (vert.getElem().equals(destino)) {
-                if ((actual.longitud() < res.longitud()) || res.esVacia()) {
+            System.out.println(actual.toString()+ " A ");
+            
+                if (vert.getElem().equals(destino)) {
                     res = actual.clone();
-                }
-            } else {
+                    System.out.println("Llego "+ res.toString());
+                    try {
+                        TimeUnit.SECONDS.sleep(3);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
+                }else {
+
                 NodoAdy ady = vert.getPrimerAdy();
                 while (ady != null) {
                     if (visitados.localizar(ady.getVertice().getElem()) < 0) {
@@ -255,6 +266,7 @@ public class GrafoEtiquetado {
             actual.eliminar(actual.longitud()); // ya lo visite, lo elimino del camino
             visitados.eliminar(visitados.longitud());
         }
+    }
         return res;
     }
 
@@ -357,7 +369,7 @@ public class GrafoEtiquetado {
 
             Lista listaA_C = new Lista();
             Lista listaC_B = new Lista();
-
+            
             if (origenAux != null && intermedioAux != null && destinoAux != null) {
                 // Encontramos todos los caminos de A a C
                 listaA_C = listarCaminoAux(origenAux, intermedioAux.getElem(), visitados, actual,res);
@@ -401,10 +413,8 @@ public class GrafoEtiquetado {
     public Lista caminoMasLargo(Object origen, Object destino) {
         /*
          * Dados dos elementos de TipoVertice (origen y destino), devuelve un camino
-         * (lista de vertices) que indique el camino que pasa por más vertices (sin
-         * ciclos)
-         * que permite llegar del vertice origen al vertice desti.getEtno. Si hay mas de
-         * un
+         * (lista de vertices) que indique el camino que pasa por más vertices (sin ciclos)
+         * que permite llegar del vertice origen al vertice desti.getEtno. Si hay mas de un
          * camino con igual cantidad de vertices, devuelve cualquiera de ellos. Si
          * alguno de los vertices no existe o no hay camino posible entre ellos
          * devuelve la lista vacía
