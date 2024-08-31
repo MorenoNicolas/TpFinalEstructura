@@ -121,8 +121,6 @@ public class MudanzasCompartida {
     }
 
     public static void cargarMapa(int codigoOrigen, int codigoDestino, double etiqueta) {
-        boolean exito = mapaRutas.existeVertice(codigoOrigen) && mapaRutas.existeVertice(codigoDestino);
-        if (exito) {
             boolean yaExiste = mapaRutas.existeArco(codigoOrigen, codigoDestino);
             if (yaExiste) {
                 escribirEnLog("No se pudo cargar la Ruta entre " + codigoOrigen + " y " + codigoDestino
@@ -132,10 +130,6 @@ public class MudanzasCompartida {
                 escribirEnLog("Se cargo la Ruta de " + codigoOrigen + " a " + codigoDestino + " con una distancia de "
                         + etiqueta + " kilometros");
             }
-        } else {
-            escribirEnLog("No se pudo cargar la Ruta entre " + codigoOrigen + " y " + codigoDestino
-                    + ", ya que una de las ciudades no esta en el sistema");
-        }
     }
 
     public static void cargarSolicitud(int origen, int destino, String fechaSolicitud, String tipoDocumento,
@@ -764,7 +758,7 @@ public class MudanzasCompartida {
         System.out.println("Ingrese la cantidad maxima de kilometros que desea recorrer:");
         int cantKm = sc.nextInt();
 
-        double kmCamino = mapaRutas.caminoMasRapidoenKM(codigoA, codigoB);
+        double kmCamino = mapaRutas.caminoMasRapidoenKM(codigoA, codigoB, cantKm);
         if (kmCamino < cantKm) {
             System.out.println("ES POSIBLE IR DE " + codigoA + " A " + codigoB + " RECORRIENDO: " + kmCamino + " KM");
         } else {

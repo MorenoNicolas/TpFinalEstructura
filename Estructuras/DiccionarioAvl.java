@@ -37,7 +37,6 @@ public class DiccionarioAvl {
             } else {
                 nodo.setIzquierdo(new NodoAVL(clave, dato, null, null));
             }
-            nodo.recalcularAltura();
         } else if (clave.compareTo(nodo.getClave()) > 0) {
             // elemento es mayor a nodo.getElem()
             // Si tiene HD baja a la derecha, sino lo setea
@@ -47,7 +46,6 @@ public class DiccionarioAvl {
             } else {
                 nodo.setDerecho(new NodoAVL(clave, dato, null, null));
             }
-            nodo.recalcularAltura();
         }
         if (exito) {
             nodo.recalcularAltura();
