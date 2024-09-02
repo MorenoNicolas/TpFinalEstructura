@@ -12,11 +12,11 @@ public class NodoVert {
         this.primerAdy = null;
     }
     
-    public Object getElem(){
+    public Object getClave(){
         return elem;
     }
     
-    public void setElem(Object elem) {
+    public void setClave(Object elem) {
         this.elem = elem;
     }
     

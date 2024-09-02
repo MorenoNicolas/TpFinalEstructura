@@ -775,9 +775,11 @@ public class MudanzasCompartida {
         int codigoB = sc.nextInt();
 
         Lista camino = mapaRutas.caminosConIntermedio(codigoA, codigoC, codigoB);
-
         if (!camino.esVacia()) {
-            System.out.println("POSIBLES CAMINOS:" + camino.toString());
+            for(int i=0; i<camino.longitud();i++){
+                Lista aux = (Lista)camino.recuperar(i);
+                System.out.println("POSIBLES CAMINOS: " + aux.toString());
+            }
         } else {
             System.out.println("NO EXISTEN CAMINOS");
         }

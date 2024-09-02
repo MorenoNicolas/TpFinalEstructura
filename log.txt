@@ -1,111 +1,111 @@
 Inicio del registro: 
-31/08/2024 13:04:04 - Se cargo la Ciudad de Mar del Plata de la Provincia de Buenos Aires con CP: 6000
-31/08/2024 13:04:04 - Se cargo la Ciudad de Río Gallegos de la Provincia de Santa Cruz con CP: 9200
-31/08/2024 13:04:04 - Se cargo la Ciudad de Villa Regina de la Provincia de Río Negro con CP: 9325
-31/08/2024 13:04:04 - Se cargo la Ciudad de Mendoza de la Provincia de Mendoza con CP: 3000
-31/08/2024 13:04:04 - Se cargo la Ciudad de La Plata de la Provincia de Buenos Aires con CP: 2000
-31/08/2024 13:04:04 - Se cargo la Ciudad de Salta de la Provincia de Salta con CP: 5000
-31/08/2024 13:04:04 - Se cargo la Ciudad de Jujuy de la Provincia de Jujuy con CP: 4400
-31/08/2024 13:04:04 - Se cargo la Ciudad de Alta Gracia de la Provincia de Córdoba con CP: 5253
-31/08/2024 13:04:04 - Se cargo la Ciudad de San Juan de la Provincia de San Juan con CP: 3100
-31/08/2024 13:04:04 - Se cargo la Ciudad de Merlo de la Provincia de San Luis con CP: 6800
-31/08/2024 13:04:04 - Se cargo la Ciudad de Allen de la Provincia de Río Negro con CP: 9353
-31/08/2024 13:04:04 - Se cargo la Ciudad de Formosa de la Provincia de Formosa con CP: 5300
-31/08/2024 13:04:04 - Se cargo la Ciudad de Goya de la Provincia de Corrientes con CP: 4500
-31/08/2024 13:04:04 - Se cargo la Ciudad de Puerto Madryn de la Provincia de Chubut con CP: 10200
-31/08/2024 13:04:04 - Se cargo la Ciudad de El Calafate de la Provincia de Santa Cruz con CP: 9204
-31/08/2024 13:04:04 - Se cargo la Ciudad de Río Grande de la Provincia de Tierra del Fuego con CP: 9217
-31/08/2024 13:04:04 - Se cargo la Ciudad de Rio Turbio de la Provincia de Santa Cruz con CP: 10000
-31/08/2024 13:04:04 - Se cargo la Ciudad de Santa Rosa de la Provincia de La Pampa con CP: 3590
-31/08/2024 13:04:04 - Se cargo la Ciudad de Villa Mercedes de la Provincia de San Luis con CP: 6810
-31/08/2024 13:04:04 - Se cargo la Ciudad de Río Turbio de la Provincia de Santa Cruz con CP: 9211
-31/08/2024 13:04:04 - Se cargo la Ciudad de Catamarca de la Provincia de Catamarca con CP: 6400
-31/08/2024 13:04:04 - Se cargo la Ciudad de Corrientes de la Provincia de Corrientes con CP: 3600
-31/08/2024 13:04:04 - Se cargo la Ciudad de San Antonio Oeste de la Provincia de Río Negro con CP: 8600
-31/08/2024 13:04:04 - Se cargo la Ciudad de Mercedes de la Provincia de Corrientes con CP: 4550
-31/08/2024 13:04:04 - Se cargo la Ciudad de Esquel de la Provincia de Chubut con CP: 10203
-31/08/2024 13:04:04 - Se cargo la Ciudad de Tolhuin de la Provincia de Tierra del Fuego con CP: 10510
-31/08/2024 13:04:04 - Se cargo la Ciudad de General Pico de la Provincia de La Pampa con CP: 3591
-31/08/2024 13:04:04 - Se cargo la Ciudad de Colón de la Provincia de Entre Ríos con CP: 3821
-31/08/2024 13:04:04 - Se cargo la Ciudad de Choele Choel de la Provincia de Río Negro con CP: 9365
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 45678900. Gutiérrez, Luis Alberto con telefono: 291-5678912 y email: luis.gutierrez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 32923847. Pereyra, Gabriela con telefono: 351-9987612 y email: gabriela.pereyra@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 49872136. Quiroga, Laura Soledad con telefono: 261-4445566 y email: laura.quiroga@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 60233411. Vega, Juan Manuel con telefono: 387-4455667 y email: juan.vega@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 70128944. Sánchez, Maria Eugenia con telefono: 342-9988111 y email: maria.sanchez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 82841090. Mendez, Carlos Alberto con telefono: 11-33221122 y email: carlos.mendez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 96739010. Ramos, Sofia con telefono: 221-9999988 y email: sofia.ramos@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 83456789. Giménez, Martin con telefono: 11-66554433 y email: martin.gimenez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 97651234. Perez, Lucia con telefono: 341-2233445 y email: lucia.perez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 53215678. Benitez, Pedro con telefono: 11-77778899 y email: pedro.benitez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 48765432. Molina, Andrea con telefono: 379-1122334 y email: andrea.molina@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 39876423. López, Gaston con telefono: 291-4455667 y email: gaston.lopez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 22098765. Martinez, Marcela con telefono: 351-4455777 y email: marcela.martinez@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 56789012. García, Lucas con telefono: 11-55443322 y email: lucas.garcia@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 64321678. Acosta, Valeria con telefono: 387-7788990 y email: valeria.acosta@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 77891234. Lorenzo, Matias con telefono: 11-99887766 y email: matias.lorenzo@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 89845612. Vargas, Ana con telefono: 341-5544332 y email: ana.vargas@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con PAS No: 41122334. Sosa, Mario con telefono: 11-88997766 y email: mario.sosa@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 98765432. Romero, Luciana con telefono: 379-3344556 y email: luciana.romero@gmail.com
-31/08/2024 13:04:04 - Se cargo el Cliente con DNI No: 83451267. Blanco, Julia con telefono: 299-5566778 y email: julia.blanco@gmail.com
-31/08/2024 13:04:04 - Se cargo la Ruta de 9325 a 9200 con una distancia de 6.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 4500 a 5300 con una distancia de 634.2 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 6000 a 3000 con una distancia de 401.0 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3100 a 3000 con una distancia de 173.0 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 6000 a 2000 con una distancia de 696.4 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9325 a 2000 con una distancia de 1136.1 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3000 a 2000 con una distancia de 299.9 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 6000 a 5000 con una distancia de 559.4 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 6810 a 6400 con una distancia de 328.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9353 a 10200 con una distancia de 684.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10203 a 9353 con una distancia de 518.8 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3591 a 3100 con una distancia de 330.2 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 6800 a 5300 con una distancia de 789.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 4400 a 3591 con una distancia de 557.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 5000 a 4400 con una distancia de 1116.9 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9204 a 9325 con una distancia de 15.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9325 a 5253 con una distancia de 1131.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10510 a 10203 con una distancia de 1734.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9204 a 5253 con una distancia de 1118.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 5000 a 5253 con una distancia de 599.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10000 a 9200 con una distancia de 438.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9211 a 5253 con una distancia de 999.8 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3590 a 4400 con una distancia de 417.1 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9200 a 9217 con una distancia de 21.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9200 a 9211 con una distancia de 133.2 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9200 a 9204 con una distancia de 20.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10203 a 9365 con una distancia de 567.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9211 a 6810 con una distancia de 655.2 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10510 a 10000 con una distancia de 1351.7 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 10200 a 10000 con una distancia de 376.4 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9325 a 9353 con una distancia de 41.0 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9365 a 9353 con una distancia de 133.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 9365 a 2000 con una distancia de 992.9 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3591 a 5300 con una distancia de 551.6 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3590 a 6800 con una distancia de 958.5 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3590 a 6810 con una distancia de 936.8 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 3600 a 6400 con una distancia de 1347.8 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 8600 a 2000 con una distancia de 913.4 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 4550 a 3600 con una distancia de 243.3 kilometros
-31/08/2024 13:04:04 - Se cargo la Ruta de 4550 a 5300 con una distancia de 869.0 kilometros
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No45678900, de 6000 a 9200 el 15/06/2023, que ocupa 13m3 y consta de 5 bultos. Se entrega en Mitre 2200 y se retira en Moreno 3500. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No32923847, de 9325 a 6000 el 14/06/2023, que ocupa 8m3 y consta de 2 bultos. Se entrega en Belgrano 852 y se retira en Rivadavia 145. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No49872136, de 9200 a 6000 el 13/06/2023, que ocupa 10m3 y consta de 4 bultos. Se entrega en Urquiza 820 y se retira en Sarmiento 234. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No60233411, de 3000 a 10200 el 12/06/2023, que ocupa 5m3 y consta de 1 bultos. Se entrega en San Martín 110 y se retira en Belgrano 890. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No82841090, de 4400 a 6810 el 11/06/2023, que ocupa 15m3 y consta de 7 bultos. Se entrega en Rivadavia 1020 y se retira en Moreno 530. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No70128944, de 10000 a 4500 el 10/06/2023, que ocupa 20m3 y consta de 10 bultos. Se entrega en San Martín 670 y se retira en Mitre 234. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No96739010, de 5253 a 4550 el 09/06/2023, que ocupa 6m3 y consta de 3 bultos. Se entrega en Rivadavia 560 y se retira en Belgrano 420. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No97651234, de 4500 a 10000 el 08/06/2023, que ocupa 12m3 y consta de 6 bultos. Se entrega en Urquiza 322 y se retira en Sarmiento 980. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No53215678, de 2000 a 8600 el 07/06/2023, que ocupa 9m3 y consta de 4 bultos. Se entrega en Belgrano 400 y se retira en San Martín 210. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No48765432, de 10000 a 3590 el 06/06/2023, que ocupa 7m3 y consta de 2 bultos. Se entrega en Rivadavia 540 y se retira en Moreno 220. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No39876423, de 9211 a 10203 el 05/06/2023, que ocupa 15m3 y consta de 8 bultos. Se entrega en San Martín 320 y se retira en Belgrano 960. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No22098765, de 3600 a 9365 el 04/06/2023, que ocupa 18m3 y consta de 9 bultos. Se entrega en Urquiza 220 y se retira en Sarmiento 860. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No56789012, de 10203 a 10000 el 03/06/2023, que ocupa 10m3 y consta de 3 bultos. Se entrega en Rivadavia 430 y se retira en Moreno 760. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No64321678, de 10200 a 4550 el 02/06/2023, que ocupa 7m3 y consta de 2 bultos. Se entrega en San Martín 140 y se retira en Belgrano 870. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No77891234, de 6810 a 9204 el 01/06/2023, que ocupa 13m3 y consta de 6 bultos. Se entrega en Belgrano 420 y se retira en San Martín 740. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No89845612, de 8600 a 6810 el 31/05/2023, que ocupa 9m3 y consta de 4 bultos. Se entrega en Rivadavia 130 y se retira en Mitre 550. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No41122334, de 4550 a 9211 el 30/05/2023, que ocupa 10m3 y consta de 5 bultos. Se entrega en Mitre 710 y se retira en Belgrano 450. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No98765432, de 3600 a 3000 el 29/05/2023, que ocupa 12m3 y consta de 7 bultos. Se entrega en San Martín 670 y se retira en Moreno 890. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No83451267, de 10203 a 6810 el 28/05/2023, que ocupa 8m3 y consta de 4 bultos. Se entrega en Urquiza 340 y se retira en Sarmiento 790. Esta pago: F
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: PAS No64321678, de 9325 a 10000 el 27/05/2023, que ocupa 11m3 y consta de 5 bultos. Se entrega en San Martín 310 y se retira en Rivadavia 420. Esta pago: T
-31/08/2024 13:04:04 - Se cargo el Pedido hecho por: DNI No89845612, de 8600 a 2000 el 26/05/2023, que ocupa 14m3 y consta de 8 bultos. Se entrega en Urquiza 890 y se retira en Belgrano 670. Esta pago: F
+01/09/2024 23:38:36 - Se cargo la Ciudad de Mar del Plata de la Provincia de Buenos Aires con CP: 6000
+01/09/2024 23:38:36 - Se cargo la Ciudad de Río Gallegos de la Provincia de Santa Cruz con CP: 9200
+01/09/2024 23:38:36 - Se cargo la Ciudad de Villa Regina de la Provincia de Río Negro con CP: 9325
+01/09/2024 23:38:36 - Se cargo la Ciudad de Mendoza de la Provincia de Mendoza con CP: 3000
+01/09/2024 23:38:36 - Se cargo la Ciudad de La Plata de la Provincia de Buenos Aires con CP: 2000
+01/09/2024 23:38:36 - Se cargo la Ciudad de Salta de la Provincia de Salta con CP: 5000
+01/09/2024 23:38:36 - Se cargo la Ciudad de Jujuy de la Provincia de Jujuy con CP: 4400
+01/09/2024 23:38:36 - Se cargo la Ciudad de Alta Gracia de la Provincia de Córdoba con CP: 5253
+01/09/2024 23:38:36 - Se cargo la Ciudad de San Juan de la Provincia de San Juan con CP: 3100
+01/09/2024 23:38:36 - Se cargo la Ciudad de Merlo de la Provincia de San Luis con CP: 6800
+01/09/2024 23:38:36 - Se cargo la Ciudad de Allen de la Provincia de Río Negro con CP: 9353
+01/09/2024 23:38:36 - Se cargo la Ciudad de Formosa de la Provincia de Formosa con CP: 5300
+01/09/2024 23:38:36 - Se cargo la Ciudad de Goya de la Provincia de Corrientes con CP: 4500
+01/09/2024 23:38:36 - Se cargo la Ciudad de Puerto Madryn de la Provincia de Chubut con CP: 10200
+01/09/2024 23:38:36 - Se cargo la Ciudad de El Calafate de la Provincia de Santa Cruz con CP: 9204
+01/09/2024 23:38:36 - Se cargo la Ciudad de Río Grande de la Provincia de Tierra del Fuego con CP: 9217
+01/09/2024 23:38:36 - Se cargo la Ciudad de Rio Turbio de la Provincia de Santa Cruz con CP: 10000
+01/09/2024 23:38:36 - Se cargo la Ciudad de Santa Rosa de la Provincia de La Pampa con CP: 3590
+01/09/2024 23:38:36 - Se cargo la Ciudad de Villa Mercedes de la Provincia de San Luis con CP: 6810
+01/09/2024 23:38:36 - Se cargo la Ciudad de Río Turbio de la Provincia de Santa Cruz con CP: 9211
+01/09/2024 23:38:36 - Se cargo la Ciudad de Catamarca de la Provincia de Catamarca con CP: 6400
+01/09/2024 23:38:36 - Se cargo la Ciudad de Corrientes de la Provincia de Corrientes con CP: 3600
+01/09/2024 23:38:36 - Se cargo la Ciudad de San Antonio Oeste de la Provincia de Río Negro con CP: 8600
+01/09/2024 23:38:36 - Se cargo la Ciudad de Mercedes de la Provincia de Corrientes con CP: 4550
+01/09/2024 23:38:36 - Se cargo la Ciudad de Esquel de la Provincia de Chubut con CP: 10203
+01/09/2024 23:38:36 - Se cargo la Ciudad de Tolhuin de la Provincia de Tierra del Fuego con CP: 10510
+01/09/2024 23:38:36 - Se cargo la Ciudad de General Pico de la Provincia de La Pampa con CP: 3591
+01/09/2024 23:38:36 - Se cargo la Ciudad de Colón de la Provincia de Entre Ríos con CP: 3821
+01/09/2024 23:38:36 - Se cargo la Ciudad de Choele Choel de la Provincia de Río Negro con CP: 9365
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 45678900. Gutiérrez, Luis Alberto con telefono: 291-5678912 y email: luis.gutierrez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 32923847. Pereyra, Gabriela con telefono: 351-9987612 y email: gabriela.pereyra@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 49872136. Quiroga, Laura Soledad con telefono: 261-4445566 y email: laura.quiroga@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 60233411. Vega, Juan Manuel con telefono: 387-4455667 y email: juan.vega@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 70128944. Sánchez, Maria Eugenia con telefono: 342-9988111 y email: maria.sanchez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 82841090. Mendez, Carlos Alberto con telefono: 11-33221122 y email: carlos.mendez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 96739010. Ramos, Sofia con telefono: 221-9999988 y email: sofia.ramos@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 83456789. Giménez, Martin con telefono: 11-66554433 y email: martin.gimenez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 97651234. Perez, Lucia con telefono: 341-2233445 y email: lucia.perez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 53215678. Benitez, Pedro con telefono: 11-77778899 y email: pedro.benitez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 48765432. Molina, Andrea con telefono: 379-1122334 y email: andrea.molina@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 39876423. López, Gaston con telefono: 291-4455667 y email: gaston.lopez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 22098765. Martinez, Marcela con telefono: 351-4455777 y email: marcela.martinez@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 56789012. García, Lucas con telefono: 11-55443322 y email: lucas.garcia@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 64321678. Acosta, Valeria con telefono: 387-7788990 y email: valeria.acosta@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 77891234. Lorenzo, Matias con telefono: 11-99887766 y email: matias.lorenzo@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 89845612. Vargas, Ana con telefono: 341-5544332 y email: ana.vargas@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con PAS No: 41122334. Sosa, Mario con telefono: 11-88997766 y email: mario.sosa@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 98765432. Romero, Luciana con telefono: 379-3344556 y email: luciana.romero@gmail.com
+01/09/2024 23:38:36 - Se cargo el Cliente con DNI No: 83451267. Blanco, Julia con telefono: 299-5566778 y email: julia.blanco@gmail.com
+01/09/2024 23:38:36 - Se cargo la Ruta de 9325 a 9200 con una distancia de 6.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 4500 a 5300 con una distancia de 634.2 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 6000 a 3000 con una distancia de 401.0 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3100 a 3000 con una distancia de 173.0 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 6000 a 2000 con una distancia de 696.4 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9325 a 2000 con una distancia de 1136.1 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3000 a 2000 con una distancia de 299.9 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 6000 a 5000 con una distancia de 559.4 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 6810 a 6400 con una distancia de 328.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9353 a 10200 con una distancia de 684.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10203 a 9353 con una distancia de 518.8 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3591 a 3100 con una distancia de 330.2 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 6800 a 5300 con una distancia de 789.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 4400 a 3591 con una distancia de 557.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 5000 a 4400 con una distancia de 1116.9 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9204 a 9325 con una distancia de 15.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9325 a 5253 con una distancia de 1131.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10510 a 10203 con una distancia de 1734.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9204 a 5253 con una distancia de 1118.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 5000 a 5253 con una distancia de 599.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10000 a 9200 con una distancia de 438.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9211 a 5253 con una distancia de 999.8 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3590 a 4400 con una distancia de 417.1 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9200 a 9217 con una distancia de 21.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9200 a 9211 con una distancia de 133.2 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9200 a 9204 con una distancia de 20.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10203 a 9365 con una distancia de 567.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9211 a 6810 con una distancia de 655.2 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10510 a 10000 con una distancia de 1351.7 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 10200 a 10000 con una distancia de 376.4 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9325 a 9353 con una distancia de 41.0 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9365 a 9353 con una distancia de 133.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 9365 a 2000 con una distancia de 992.9 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3591 a 5300 con una distancia de 551.6 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3590 a 6800 con una distancia de 958.5 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3590 a 6810 con una distancia de 936.8 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 3600 a 6400 con una distancia de 1347.8 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 8600 a 2000 con una distancia de 913.4 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 4550 a 3600 con una distancia de 243.3 kilometros
+01/09/2024 23:38:36 - Se cargo la Ruta de 4550 a 5300 con una distancia de 869.0 kilometros
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No45678900, de 6000 a 9200 el 15/06/2023, que ocupa 13m3 y consta de 5 bultos. Se entrega en Mitre 2200 y se retira en Moreno 3500. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No32923847, de 9325 a 6000 el 14/06/2023, que ocupa 8m3 y consta de 2 bultos. Se entrega en Belgrano 852 y se retira en Rivadavia 145. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No49872136, de 9200 a 6000 el 13/06/2023, que ocupa 10m3 y consta de 4 bultos. Se entrega en Urquiza 820 y se retira en Sarmiento 234. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No60233411, de 3000 a 10200 el 12/06/2023, que ocupa 5m3 y consta de 1 bultos. Se entrega en San Martín 110 y se retira en Belgrano 890. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No82841090, de 4400 a 6810 el 11/06/2023, que ocupa 15m3 y consta de 7 bultos. Se entrega en Rivadavia 1020 y se retira en Moreno 530. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No70128944, de 10000 a 4500 el 10/06/2023, que ocupa 20m3 y consta de 10 bultos. Se entrega en San Martín 670 y se retira en Mitre 234. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No96739010, de 5253 a 4550 el 09/06/2023, que ocupa 6m3 y consta de 3 bultos. Se entrega en Rivadavia 560 y se retira en Belgrano 420. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No97651234, de 4500 a 10000 el 08/06/2023, que ocupa 12m3 y consta de 6 bultos. Se entrega en Urquiza 322 y se retira en Sarmiento 980. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No53215678, de 2000 a 8600 el 07/06/2023, que ocupa 9m3 y consta de 4 bultos. Se entrega en Belgrano 400 y se retira en San Martín 210. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No48765432, de 10000 a 3590 el 06/06/2023, que ocupa 7m3 y consta de 2 bultos. Se entrega en Rivadavia 540 y se retira en Moreno 220. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No39876423, de 9211 a 10203 el 05/06/2023, que ocupa 15m3 y consta de 8 bultos. Se entrega en San Martín 320 y se retira en Belgrano 960. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No22098765, de 3600 a 9365 el 04/06/2023, que ocupa 18m3 y consta de 9 bultos. Se entrega en Urquiza 220 y se retira en Sarmiento 860. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No56789012, de 10203 a 10000 el 03/06/2023, que ocupa 10m3 y consta de 3 bultos. Se entrega en Rivadavia 430 y se retira en Moreno 760. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No64321678, de 10200 a 4550 el 02/06/2023, que ocupa 7m3 y consta de 2 bultos. Se entrega en San Martín 140 y se retira en Belgrano 870. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No77891234, de 6810 a 9204 el 01/06/2023, que ocupa 13m3 y consta de 6 bultos. Se entrega en Belgrano 420 y se retira en San Martín 740. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No89845612, de 8600 a 6810 el 31/05/2023, que ocupa 9m3 y consta de 4 bultos. Se entrega en Rivadavia 130 y se retira en Mitre 550. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No41122334, de 4550 a 9211 el 30/05/2023, que ocupa 10m3 y consta de 5 bultos. Se entrega en Mitre 710 y se retira en Belgrano 450. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No98765432, de 3600 a 3000 el 29/05/2023, que ocupa 12m3 y consta de 7 bultos. Se entrega en San Martín 670 y se retira en Moreno 890. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No83451267, de 10203 a 6810 el 28/05/2023, que ocupa 8m3 y consta de 4 bultos. Se entrega en Urquiza 340 y se retira en Sarmiento 790. Esta pago: F
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: PAS No64321678, de 9325 a 10000 el 27/05/2023, que ocupa 11m3 y consta de 5 bultos. Se entrega en San Martín 310 y se retira en Rivadavia 420. Esta pago: T
+01/09/2024 23:38:36 - Se cargo el Pedido hecho por: DNI No89845612, de 8600 a 2000 el 26/05/2023, que ocupa 14m3 y consta de 8 bultos. Se entrega en Urquiza 890 y se retira en Belgrano 670. Esta pago: F

@@ -9,9 +9,11 @@ public class DiccionarioAvl {
     }
 
     public boolean insertar(Comparable clave, Object dato) {
-        /* Recibe un elemento y lo agrega en el arbol de manera ordenada. Si el 
-        elemento ya se encuentra en el árbol no se realiza la inserción. Devuelve 
-        verdadero si el elemento se agrega a la estructura y falso en caso contrario */
+        /*
+         * Recibe un elemento y lo agrega en el arbol de manera ordenada. Si el
+         * elemento ya se encuentra en el árbol no se realiza la inserción. Devuelve
+         * verdadero si el elemento se agrega a la estructura y falso en caso contrario
+         */
         boolean exito = true;
         if (this.raiz == null) {
             this.raiz = new NodoAVL(clave, dato, null, null);
@@ -29,20 +31,20 @@ public class DiccionarioAvl {
             // Elemento repetido
             exito = false;
         } else if (clave.compareTo(nodo.getClave()) < 0) {
-            // elemento es menor a nodo.getElem()
+            // elemento es menor a nodo.getClave()
             // Si tiene HI baja a la izquierda, sino lo setea
             if (nodo.getIzquierdo() != null) {
                 exito = insertarAux(nodo.getIzquierdo(), nodo, clave, dato);
-                //balancear(nodo.getIzquierdo(), nodo);
+                // balancear(nodo.getIzquierdo(), nodo);
             } else {
                 nodo.setIzquierdo(new NodoAVL(clave, dato, null, null));
             }
         } else if (clave.compareTo(nodo.getClave()) > 0) {
-            // elemento es mayor a nodo.getElem()
+            // elemento es mayor a nodo.getClave()
             // Si tiene HD baja a la derecha, sino lo setea
             if (nodo.getDerecho() != null) {
                 exito = insertarAux(nodo.getDerecho(), nodo, clave, dato);
-                //balancear(nodo.getDerecho(), nodo);
+                // balancear(nodo.getDerecho(), nodo);
             } else {
                 nodo.setDerecho(new NodoAVL(clave, dato, null, null));
             }
@@ -60,7 +62,6 @@ public class DiccionarioAvl {
         int balanceHijo;
         balanceNodo = balance(nodo);
         if (nodo != null) {
-            System.out.println("Entra a balancear nodo: "+nodo.getClave());
             if (balanceNodo == 2) {
                 // Torcido hacia la izquierda
                 balanceHijo = balance(nodo.getIzquierdo());
@@ -155,161 +156,155 @@ public class DiccionarioAvl {
         return balanceNodo;
     }
 
-    public boolean eliminar(Comparable clave) {
-        /* Recibe el elemento que se desea eliminar y se procede a removerlo del
-        arbol. Si no se encuentra, no se puede realizar la eliminación. Devuelve
-        verdadero si el elemento se elimina de la estructura y falso en caso contrario */
-        boolean resultado = false;
-        if (this.raiz != null) {
-            resultado = eliminarAux(this.raiz, null, clave);
-        }
-        return resultado;
-    }
-
-    private boolean eliminarAux(NodoAVL nodo, NodoAVL padre, Comparable clave) {
+    public boolean eliminar(Comparable elem) {
         boolean exito = false;
-        if (nodo != null) {
-            if (clave.compareTo(nodo.getClave()) == 0) {
-                /*  Si es hoja: eliminar segun el caso 1
-                    Si tiene un hijo: eliminar segun el caso 2
-                    Si tiene ambos hijos: eliminar segun el caso 3
-                 */
-                if (nodo.getIzquierdo() == null && nodo.getDerecho() == null) {
-                    caso1(nodo, padre);
-                } else if ((nodo.getIzquierdo() != null && nodo.getDerecho() == null) || (nodo.getIzquierdo() == null && nodo.getDerecho() != null)) {
-                    caso2(nodo, padre);
-                } else if (nodo.getIzquierdo() != null && nodo.getDerecho() != null) {
-                    caso3(nodo, padre);
-                }
-                exito = true;
-            } else if (clave.compareTo(nodo.getClave()) < 0) {
-                exito = eliminarAux(nodo.getIzquierdo(), nodo, clave);
-            } else if (clave.compareTo(nodo.getClave()) > 0) {
-                exito = eliminarAux(nodo.getDerecho(), nodo, clave);
-            }
-        }
-        if (exito && nodo != null) {
-            nodo.recalcularAltura();
-            balancear(nodo, padre);
-            nodo.recalcularAltura();
+        if (this.raiz != null) {
+            exito = eliminarAux(this.raiz, null, elem);
         }
         return exito;
     }
 
-    private void caso1(NodoAVL nodo, NodoAVL padre) {
-        //  El nodo a eliminar es una hoja
-        if (padre != null) {
-            if (nodo.getClave().compareTo(padre.getClave()) < 0) {
-                // Caso en el que nodo es HI de su padre
-                padre.setIzquierdo(null);
-            } else if (nodo.getClave().compareTo(padre.getClave()) > 0) {
-                // Caso en el que nodo es HD de su padre
+    private boolean eliminarAux(NodoAVL n, NodoAVL padre, Comparable elem) {
+        boolean exito = false;
+        if (n != null) {
+            if ((elem.compareTo(n.getClave())) == 0) {
+
+                if (n.getIzquierdo() == null && n.getDerecho() == null) {
+                    // si n no tiene hijos
+                    noTieneHijos(padre, elem);
+                    exito = true;
+
+                } else if ((n.getIzquierdo() != null ^ n.getDerecho() != null)) {
+                    // si n tiene UN hijo
+                    tieneUnHijo(n, padre, elem);
+                    exito = true;
+
+                } else {
+                    // si n tiene ambos hijos
+                    if (n.getIzquierdo().getDerecho() != null) {
+                        // caso candidato
+                        tieneAmbosCandidato(n.getIzquierdo(), null, n);
+                    } else {
+                        // caso HI
+                        tieneAmbosHI(n);
+                    }
+                    exito = true;
+                }
+
+            } else {
+                if (elem.compareTo(n.getClave()) < 0) {
+                    exito = eliminarAux(n.getIzquierdo(), n, elem);
+                }
+                if (elem.compareTo(n.getClave()) > 0) {
+                    exito = eliminarAux(n.getDerecho(), n, elem);
+                }
+            }
+
+            if (exito) {
+                n.recalcularAltura();
+                balancear(n, padre);
+                n.recalcularAltura();
+            }
+        }
+
+        return exito;
+
+    }
+
+    // CASOS DE ELIMINAR
+
+    private void noTieneHijos(NodoAVL padre, Comparable elem) {
+
+        // si no tiene hijos
+        if (padre == null) {
+            // caso especial si el padre es nulo (raiz)
+            this.raiz = null;
+        } else {
+            if (padre.getIzquierdo() != null) {
+                if (padre.getIzquierdo().getClave().compareTo(elem) == 0) {
+                    // si n es el HI de padre
+                    padre.setIzquierdo(null);
+                } else {
+                    // si n es HD de padre
+                    padre.setDerecho(null);
+                }
+            } else {
+                // si HI es nulo entonces es el HD
                 padre.setDerecho(null);
             }
-        } else {
-            // Caso raiz
-            this.raiz = null;
         }
+
     }
 
-    private void caso2(NodoAVL nodo, NodoAVL padre) {
-        // El nodo a eliminar tiene un solo hijo
-        if (padre != null) {
-            if (nodo.getClave().compareTo(padre.getClave()) < 0) {
-                // Caso en el que nodo es HI de su padre
-                if (nodo.getIzquierdo() != null) {
-                    // Caso en el que el unico hijo de nodo es HI
-                    padre.setIzquierdo(nodo.getIzquierdo());
-                } else {
-                    // Caso en el que el unico hijo de nodo es HD
-                    padre.setIzquierdo(nodo.getDerecho());
-                }
-            } else if (nodo.getClave().compareTo(padre.getClave()) > 0) {
-                // Caso en el que nodo es HD de su padre
-                if (nodo.getIzquierdo() != null) {
-                    // Caso en el que el unico hijo de nodo es HI
-                    padre.setDerecho(nodo.getIzquierdo());
-                } else {
-                    // Caso en el que el unico hijo de nodo es HD
-                    padre.setDerecho(nodo.getDerecho());
-                }
-            }
-        } else {
-            // Caso raiz
-            if (nodo.getIzquierdo() != null) {
-                // Caso en el que el unico hijo de la raiz es HI
-                this.raiz = this.raiz.getIzquierdo();
+    private void tieneUnHijo(NodoAVL n, NodoAVL padre, Comparable elem) {
+
+        if (n.getIzquierdo() != null) {
+            // si n tiene HI
+            if (padre == null) {
+                // caso especial si el padre es nulo
+                this.raiz = n.getIzquierdo();
             } else {
-                // Caso en el que el unico hijo de nodo es HD
-                this.raiz = this.raiz.getDerecho();
+                if (padre.getIzquierdo().getClave().compareTo(elem) == 0) {
+                    // si n es el HI de padre
+                    padre.setIzquierdo(n.getIzquierdo());
+                } else {
+                    // si n es el HD de padre
+                    padre.setDerecho(n.getIzquierdo());
+                }
             }
         }
+        if (n.getDerecho() != null) {
+            // si n tiene HD
+            if (padre == null) {
+                // caso especial si el padre es nulo
+                this.raiz.setDerecho(n.getDerecho());
+            } else {
+                if (padre.getIzquierdo().getClave().compareTo(elem) == 0) {
+                    // si n es el HI de padre
+                    padre.setIzquierdo(n.getDerecho());
+                } else {
+                    // si n es el HD de padre
+                    padre.setDerecho(n.getDerecho());
+                }
+            }
+        }
+
     }
 
-    private void caso3(NodoAVL nodo, NodoAVL padre) {
-        // El nodo a eliminar tiene ambos hijos
-        if (padre != null) {
-            // Caso NO raiz
-            if (nodo.getIzquierdo().getDerecho() != null) {
-                // Caso en el que el candidato es el nieto/bisnieto
-                NodoAVL nodoAux = nodo.getIzquierdo();
-                NodoAVL padreAux = null;
-                while (nodoAux.getDerecho() != null) {
-                    padreAux = nodoAux;
-                    nodoAux = nodoAux.getDerecho();
-                }
-                nodo.setClave(nodoAux.getClave());
-                nodo.setDato(nodoAux.getDato());
-                if (nodoAux.getIzquierdo() != null) {
-                    padreAux.setDerecho(nodoAux.getIzquierdo());
-                } else {
-                    padreAux.setDerecho(null);
-                }
-            } else {
-                // Caso en el que el candidato es el hijo
-                nodo.setClave(nodo.getIzquierdo().getClave());
-                nodo.setDato(nodo.getIzquierdo().getDato());
-                if (nodo.getIzquierdo().getIzquierdo() != null) {
-                    nodo.setIzquierdo(nodo.getIzquierdo().getIzquierdo());
-                } else {
-                    nodo.setIzquierdo(null);
-                }
-            }
+    private void tieneAmbosCandidato(NodoAVL n, NodoAVL anterior, NodoAVL raiz) {
+
+        if (n.getDerecho() != null) {
+
+            tieneAmbosCandidato(n.getDerecho(), n, raiz);
+
         } else {
-            // Caso raiz
-            if (nodo.getIzquierdo().getDerecho() != null) {
-                // Caso en el que el candidato es el nieto/bisnieto
-                NodoAVL nodoAux = nodo.getIzquierdo();
-                NodoAVL padreAux = null;
-                while (nodoAux.getDerecho() != null) {
-                    padreAux = nodoAux;
-                    nodoAux = nodoAux.getDerecho();
-                }
-                this.raiz.setClave(nodoAux.getClave());
-                this.raiz.setDato(nodoAux.getDato());
-                if (nodoAux.getIzquierdo() != null) {
-                    padreAux.setDerecho(nodoAux.getIzquierdo());
-                } else {
-                    padreAux.setDerecho(null);
-                }
-            } else {
-                // Caso en el que el candidato es el hijo
-                this.raiz.setClave(nodo.getIzquierdo().getClave());
-                this.raiz.setDato(nodo.getIzquierdo().getDato());
-                if (nodo.getIzquierdo().getIzquierdo() != null) {
-                    this.raiz.setIzquierdo(nodo.getIzquierdo().getIzquierdo());
-                } else {
-                    this.raiz.setIzquierdo(null);
-                }
-            }
+
+            // encontro el candidato, setea los elementos del nodo a modificar(raiz)
+            raiz.setClave(n.getClave());
+            raiz.setDato(n.getDato());
+            anterior.setDerecho(n.getIzquierdo());
         }
+
+        n.recalcularAltura();
+        balancear(n, anterior);
+        n.recalcularAltura();
+
     }
+
+    private void tieneAmbosHI(NodoAVL n) {
+        n.setClave(n.getIzquierdo().getClave());
+        n.setDato(n.getIzquierdo().getDato());
+        n.setIzquierdo(n.getIzquierdo().getIzquierdo());
+    }
+
 
     public Object obtenerDato(Comparable clave) {
-        /* Si en la estructura se encuentra almacenado un elemento con la clave 
-        recibida por parametro, devuelve la informacion asociada a ella.
-        Precondicion: si no existe un elemento con esa clave no se puede asegurar
-        el funcionamiento de la operacion */
+        /*
+         * Si en la estructura se encuentra almacenado un elemento con la clave
+         * recibida por parametro, devuelve la informacion asociada a ella.
+         * Precondicion: si no existe un elemento con esa clave no se puede asegurar
+         * el funcionamiento de la operacion
+         */
         Object resultado = null;
         if (this.raiz != null) {
             resultado = buscarDato(this.raiz, clave);
@@ -335,8 +330,10 @@ public class DiccionarioAvl {
     }
 
     public boolean existeClave(Comparable clave) {
-        /* Devuelve verdadero si en la estructura se encuentra almacenado un elemento
-        con la clave recibida por parametro, caso contrario devuelve falso */
+        /*
+         * Devuelve verdadero si en la estructura se encuentra almacenado un elemento
+         * con la clave recibida por parametro, caso contrario devuelve falso
+         */
         boolean resultado = false;
         if (this.raiz != null) {
             resultado = existeClaveAux(this.raiz, clave);
@@ -359,8 +356,10 @@ public class DiccionarioAvl {
     }
 
     public Lista listarClaves() {
-        /* Recorre la estructura completa y devuelve una lista ordenada con las 
-        claves de los elementos que se encuentran almacenados en ella */
+        /*
+         * Recorre la estructura completa y devuelve una lista ordenada con las
+         * claves de los elementos que se encuentran almacenados en ella
+         */
         Lista lista = new Lista();
         listarClavesAux(this.raiz, lista);
         return lista;
@@ -376,8 +375,10 @@ public class DiccionarioAvl {
     }
 
     public Lista listarDatos() {
-        /* Recorre la estructura completa y devuelve una lista ordenada con la 
-        informacion asociada de los elementos que se encuentran almacenados en ella */
+        /*
+         * Recorre la estructura completa y devuelve una lista ordenada con la
+         * informacion asociada de los elementos que se encuentran almacenados en ella
+         */
         Lista lista = new Lista();
         listarDatosAux(this.raiz, lista);
         return lista;
@@ -391,10 +392,12 @@ public class DiccionarioAvl {
             listarDatosAux(nodo.getDerecho(), lista);
         }
     }
-    
+
     public Lista listarRango(Comparable elemMinimo, Comparable elemMaximo) {
-        /* Recorre parte del arbol (sólo lo necesario) y devuelve una lista ordenada
-        con los elementos que se encuentran en el intervalo [elemMinimo, elemMaximo] */
+        /*
+         * Recorre parte del arbol (sólo lo necesario) y devuelve una lista ordenada
+         * con los elementos que se encuentran en el intervalo [elemMinimo, elemMaximo]
+         */
         Lista lista = new Lista();
         listarRangoAux(this.raiz, lista, elemMinimo, elemMaximo);
         return lista;

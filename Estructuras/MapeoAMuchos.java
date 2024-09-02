@@ -33,7 +33,7 @@ public class MapeoAMuchos {
             // Si ya existe, agregar rango a la lista de rangos
             nodo.getRango().insertar(valorRango, nodo.getRango().longitud() + 1);
         } else if (valorDominio.compareTo(nodo.getDominio()) < 0) {
-            // elemento es menor a nodo.getElem()
+            // elemento es menor a nodo.getClave()
             // Si tiene HI baja a la izquierda, sino lo setea
             if (nodo.getIzquierdo() != null) {
                 exito = asociarAux(nodo.getIzquierdo(), nodo, valorDominio, valorRango);
@@ -41,7 +41,7 @@ public class MapeoAMuchos {
                 nodo.setIzquierdo(new NodoAVLMapeoM(valorDominio, valorRango, null, null));
             }
         } else if (valorDominio.compareTo(nodo.getDominio()) > 0) {
-            // elemento es mayor a nodo.getElem()
+            // elemento es mayor a nodo.getClave()
             // Si tiene HD baja a la derecha, sino lo setea
             if (nodo.getDerecho() != null) {
                 exito = asociarAux(nodo.getDerecho(), nodo, valorDominio, valorRango);

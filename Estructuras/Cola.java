@@ -30,7 +30,7 @@ public class Cola {
             Nodo aux = frente;
             s = "[";
             while (aux != null) {
-                s += aux.getElem().toString();
+                s += aux.getClave().toString();
                 aux = aux.getEnlace();
                 if (aux != null)
                     s += ",";
@@ -53,7 +53,7 @@ public class Cola {
     }
 
     public Object obtenerFrente() {
-        return frente.getElem();
+        return frente.getClave();
     }
 
     public boolean esVacia() {
@@ -74,7 +74,7 @@ public class Cola {
     private void auxiliar(Cola culon, Nodo enlace){
         if(enlace!=null){
             auxiliar(culon, enlace.getEnlace());
-            culon.frente = new Nodo(enlace.getElem(), frente.getEnlace());
+            culon.frente = new Nodo(enlace.getClave(), frente.getEnlace());
         }
     }
 

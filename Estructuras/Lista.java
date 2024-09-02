@@ -62,7 +62,7 @@ public class Lista {
                 aux = aux.getEnlace();
                 i++;
             }
-            elemento = aux.getElem();
+            elemento = aux.getClave();
         }
         return elemento;
     }
@@ -73,7 +73,7 @@ public class Lista {
 
         Nodo aux = this.cabecera;
         while (i <= longitud() && aux != null && exito == false) {
-            if (aux.getElem().equals(elem)) {
+            if (aux.getClave().equals(elem)) {
                 exito = true;
                 pos = i;
             } else {
@@ -95,10 +95,10 @@ public class Lista {
     public Lista clone() {
         Lista clon = new Lista();
         Nodo aux = cabecera.getEnlace();
-        clon.cabecera = new Nodo(cabecera.getElem(), null);
+        clon.cabecera = new Nodo(cabecera.getClave(), null);
         Nodo aux2 = clon.cabecera;
         while (aux != null) {
-            aux2.setEnlace(new Nodo(aux.getElem(), null));
+            aux2.setEnlace(new Nodo(aux.getClave(), null));
             aux = aux.getEnlace();
             aux2 = aux2.getEnlace();
         }
@@ -125,7 +125,7 @@ public class Lista {
             resultado = "La lista esta vacia";
         } else {
             while (aux != null) {
-                resultado = resultado + aux.getElem().toString();
+                resultado = resultado + aux.getClave().toString();
                 aux = aux.getEnlace();
                 if (aux != null) {
                     resultado = resultado + ", ";
@@ -142,12 +142,12 @@ public class Lista {
         int i = 1;
         while (aux != null) {
             if (i % num == 0) {
-                // System.out.println(aux.getElem());
+                // System.out.println(aux.getClave());
                 if (auxNueva == null) {
-                    lis.cabecera = new Nodo(aux.getElem(), null);
+                    lis.cabecera = new Nodo(aux.getClave(), null);
                     auxNueva = lis.cabecera;
                 } else {
-                    auxNueva.setEnlace(new Nodo(aux.getElem(), null));
+                    auxNueva.setEnlace(new Nodo(aux.getClave(), null));
                     auxNueva = auxNueva.getEnlace();
                 }
             }
@@ -159,11 +159,11 @@ public class Lista {
 
     public void eliminarOcurrencias(Object x) {
         Nodo aux = cabecera;
-        while (cabecera.getElem().equals(x)) {
+        while (cabecera.getClave().equals(x)) {
             cabecera = cabecera.getEnlace();
         }
         while (aux.getEnlace() != null) {
-            if (aux.getEnlace().getElem().equals(x)) {
+            if (aux.getEnlace().getClave().equals(x)) {
                 aux.setEnlace(aux.getEnlace().getEnlace());
             } else {
                 aux = aux.getEnlace();
@@ -235,10 +235,10 @@ public class Lista {
 
     public void agregarElemento(Object nuevo, int x) {
         int i = 0;
-        Object viejo = cabecera.getElem();
+        Object viejo = cabecera.getClave();
         Nodo aux = cabecera;
         if (x > 0) {
-            cabecera.setElem(nuevo);
+            cabecera.setClave(nuevo);
             cabecera.setEnlace(new Nodo(viejo, cabecera.getEnlace()));
             while (aux != null) {
                 if (i == x) {
@@ -249,7 +249,7 @@ public class Lista {
                 aux = aux.getEnlace();
             }
         } else {
-            cabecera.setElem(nuevo);
+            cabecera.setClave(nuevo);
             cabecera.setEnlace(new Nodo(viejo, cabecera.getEnlace()));
         }
     }
@@ -258,9 +258,9 @@ public class Lista {
         Solicitud nodo;
         Nodo aux = this.cabecera;
         while(aux != null && resultado == null) {
-            nodo = (Solicitud) aux.getElem();
+            nodo = (Solicitud) aux.getClave();
             if(nodo.equals((Solicitud)solicitud)) {
-                resultado = aux.getElem();
+                resultado = aux.getClave();
             } else {
                 aux = aux.getEnlace();
             }
@@ -272,14 +272,14 @@ public class Lista {
         boolean exito = false;
         Solicitud elemAux = (Solicitud) elem;
         if(this.cabecera != null) {
-            Solicitud solicitud = (Solicitud) this.cabecera.getElem();
+            Solicitud solicitud = (Solicitud) this.cabecera.getClave();
             if(solicitud.equals(elemAux)) {
                 this.cabecera = this.cabecera.getEnlace();
                 exito = true;
             } else {
                 Nodo aux = this.cabecera;
                 while (aux.getEnlace() != null && !exito) {
-                    solicitud = (Solicitud) aux.getEnlace().getElem();
+                    solicitud = (Solicitud) aux.getEnlace().getClave();
                     if(solicitud.equals(elemAux)) {
                         aux.setEnlace(aux.getEnlace().getEnlace());
                         exito = true;

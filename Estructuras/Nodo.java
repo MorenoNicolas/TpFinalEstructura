@@ -12,13 +12,13 @@ package estructuras;
         this.element = elem;
         this.enlace = enlace;
     }
-    public void setElem(Object elem){
+    public void setClave(Object elem){
         this.element = elem;
     }
     public void setEnlace(Nodo en){
         this.enlace = en;
     }
-    public Object getElem(){
+    public Object getClave(){
         return element;
     }
     public Nodo getEnlace(){
