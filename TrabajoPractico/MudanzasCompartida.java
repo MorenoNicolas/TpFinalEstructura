@@ -767,22 +767,26 @@ public class MudanzasCompartida {
     }
 
     public static void caminoPorCiudadIntermedia() {
-        System.out.println("Ingrese el codigo de la ciudad A inicial");
-        int codigoA = sc.nextInt();
-        System.out.println("Ingrese el codigo de la ciudad C intermedia");
-        int codigoC = sc.nextInt();
-        System.out.println("Ingrese el codigo de la ciudad B final");
-        int codigoB = sc.nextInt();
+        // System.out.println("Ingrese el codigo de la ciudad A inicial");
+        // int codigoA = sc.nextInt();
+        // System.out.println("Ingrese el codigo de la ciudad C intermedia");
+        // int codigoC = sc.nextInt();
+        // System.out.println("Ingrese el codigo de la ciudad B final");
+        // int codigoB = sc.nextInt();
 
-        Lista camino = mapaRutas.caminosConIntermedio(codigoA, codigoC, codigoB);
-        if (!camino.esVacia()) {
-            for(int i=0; i<camino.longitud();i++){
-                Lista aux = (Lista)camino.recuperar(i);
-                System.out.println("POSIBLES CAMINOS: " + aux.toString());
-            }
-        } else {
-            System.out.println("NO EXISTEN CAMINOS");
-        }
+
+
+        //Lista camino = mapaRutas.caminosConIntermedio(5253, 9200, 10200);
+        Lista camino = mapaRutas.listarTodosLosCaminos(6000, 5253);
+        System.out.println(camino.toString());
+        // if (!camino.esVacia()) {
+        //     for(int i=0; i<camino.longitud();i++){
+        //         Lista aux = (Lista)camino.recuperar(i);
+        //         System.out.println("POSIBLES CAMINOS: " + aux.toString());
+        //     }
+        // } else {
+        //     System.out.println("NO EXISTEN CAMINOS");
+        // }
     }
 
     public static void verificarViaje() {
