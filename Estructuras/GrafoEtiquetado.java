@@ -352,7 +352,6 @@ public class GrafoEtiquetado {
         if (origenAux != null) {
             listarCaminosAux(origenAux, destino, visitados, caminos);
         }
-
         return caminos;
     }
 
@@ -381,65 +380,61 @@ public class GrafoEtiquetado {
         }
     }
     //Método que encuentra todos los caminos de A a B pasando por C
-    // public Lista caminosConIntermedio(Object origen, Object intermedio, Object destino) {
-    //     Lista visitados = new Lista();
-    //     Lista visitadosAux = new Lista();
-    //     Lista res = new Lista();
-    //     Lista conjuntoCaminos = new Lista();
-    //     Lista retorno = new Lista();
-    //     NodoVert origenAux = ubicarVertice(origen);
-    //     if (this.inicio != null) {
-    //         Lista listaCamino = listarCaminoAux(origenAux, destino, visitados, res, visitadosAux);
-    //         visitadosAux = listaCamino;
-    //         while (!listaCamino.esVacia()) {
-    //             conjuntoCaminos.insertar(listaCamino, conjuntoCaminos.longitud()+1);
-                
-    //             listaCamino = listarCaminoAux(origenAux, destino, visitados, res, visitadosAux);
-    //             System.out.println(listaCamino.toString());
+    public Lista caminosConIntermedio(Object origen, Object intermedio, Object destino) {
+        Lista visitados = new Lista();
+        Lista visitadosAnteriores = new Lista();
+        Lista res = new Lista();
+        Lista conjuntoCaminos = new Lista();
+        Lista retorno = new Lista();
+        NodoVert origenAux = ubicarVertice(origen);
+        if (this.inicio != null) {
+            //Busco el primer camino
+            res = listarCaminoAux(origenAux,origen, destino,intermedio, visitados, res, visitadosAnteriores);
+            
+            if(!res.esVacia()){
+                visitadosAnteriores = res.clone();
+                while(!res.esVacia()){
+                    conjuntoCaminos.insertar(res, 1);
+                    visitados = new Lista();
+                    res = listarCaminoAux(origenAux,origen, destino, intermedio, visitados, new Lista(), visitadosAnteriores);
+                    for (int i = 0; i < res.longitud(); i++) {
+                        Object elem = res.recuperar(i);
+                        if (elem!=null&&visitadosAnteriores.localizar(elem) < 0) {
+                            visitadosAnteriores.insertar(elem, visitadosAnteriores.longitud() + 1);
+                        }
+                    }
+                }
+                //Busco en la Lista de Listas las que tengan Intermedio
+                for (int i = 1; i <= conjuntoCaminos.longitud(); i++) {
+                    Lista listaInterna = (Lista) conjuntoCaminos.recuperar(i); 
+                    // Verificamos si la lista interna contiene el valor
+                    if (listaInterna.localizar(intermedio) >= 0) {
+                        retorno.insertar(listaInterna, retorno.longitud() + 1); 
+                    }
+                }
+            }
+        }
+        return retorno;
+    }
 
-    //             for (int i = 0; i < listaCamino.longitud(); i++) {
-
-    //                 System.out.println("bagatata");
-
-    //                 if (listaCamino.recuperar(i) != intermedio) {
-    //                     visitadosAux.insertar(listaCamino.recuperar(i), visitadosAux.longitud()+1);
-    //                 }
-    //             }
-    //             System.out.println(visitadosAux.toString()+ " visitadossssss");
-                
-    //         }
-
-    //         // for(int j=0; j<conjuntoCaminos.longitud();j++){
-    //         //     Lista aux = (Lista)conjuntoCaminos.recuperar(j);
-    //         //     if(aux.localizar(intermedio)>=0){
-    //         //         retorno.insertar(aux, 1);
-    //         //     }
-    //         // }
-    //     }
-    //     return retorno;
-    // }
-
-    // private Lista listarCaminoAux(NodoVert vert, Object destino, Lista visitados, Lista res, Lista visitadosAux) {
-    //     if (vert != null) {
-    //         visitados.insertar(vert.getClave(), visitados.longitud() + 1);
-    //         if (vert.getClave().equals(destino)) {
-    //             if ((visitados.longitud() < res.longitud()) || res.esVacia()) {
-    //                 res = visitados.clone();
-    //             }
-    //         } else {
-    //             NodoAdy ady = vert.getPrimerAdy();
-    //             System.out.println("sout feo bien feo");
-    //             while (ady != null) {
-    //                 if (visitados.localizar(ady.getVertice().getClave()) < 0 && visitadosAux.localizar(ady.getVertice().getClave()) < 0) {
-    //                     res = listarCaminoAux(ady.getVertice(), destino, visitados, res, visitadosAux);
-    //                 }
-    //                 ady = ady.getSigAdyacente();
-    //             }
-    //         }
-    //         visitados.eliminar(visitados.longitud());
-    //     }
-    //     return res;
-    // }
+    private Lista listarCaminoAux(NodoVert vert,Object origen, Object destino,Object medio, Lista visitados, Lista res, Lista visitadosAux) {
+        if (vert != null) {
+            visitados.insertar(vert.getClave(), visitados.longitud() + 1);
+            if (vert.getClave().equals(destino)) { 
+                    res = visitados.clone();
+            } else {
+                NodoAdy ady = vert.getPrimerAdy();
+                while (ady != null) {
+                    if ((visitados.localizar(ady.getVertice().getClave()) < 0 && visitadosAux.localizar(ady.getVertice().getClave()) < 0)||ady.getVertice().getClave().equals(destino)||ady.getVertice().getClave().equals(medio)) {
+                        res = listarCaminoAux(ady.getVertice(),origen, destino,medio, visitados, res, visitadosAux);
+                    }
+                    ady = ady.getSigAdyacente();
+                }
+            }
+            visitados.eliminar(visitados.longitud());
+        }
+        return res;
+    }
 
     public Lista caminoMasLargo(Object origen, Object destino) {
         /*
